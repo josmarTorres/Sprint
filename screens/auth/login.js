@@ -50,18 +50,16 @@ const LoginScreen = ({navigation}) => {
                 <View style = {{margin: 5, flex: 1}}>
                     <Button
                         title = "registro"
-                        onPress={() => navigation.navigate("register")}
+                        onPress={() => navigation.navigate("home")}
                     />
                 </View>             
             </View>
-            <View style={{margin: 5}}>
-                    <Text style={{textAlign: 'center'}}>
+            <View style={{margin: 10}}>
+                    <Text 
+                        onPress={() => navigation.navigate("recovery")}
+                        style={{textAlign: 'center', color: "blue"}}>
                         Olvide mi contraseña
                     </Text>
-                    <Button
-                        title="olvide mi cocntraseña"
-                        color="#841584"
-                    />
                 </View>   
         </LinearGradient>
     );

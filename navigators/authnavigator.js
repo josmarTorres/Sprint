@@ -3,6 +3,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import loginScreen from "../screens/auth/login";
 import registerScreen from "../screens/auth/register";
+import recoveryScreen from "../screens/auth/recovery";
+import recovery2Screen from "../screens/auth/recovery2";
+import CodigoV from '../screens/Codigo';
+import home from '../screens/auth/Inicio';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +27,10 @@ function AuthNavigator() {
                     }} 
                 />
                 <Stack.Screen name="register" component={registerScreen} />
+                <Stack.Screen name="recovery" component={recoveryScreen} />
+                <Stack.Screen name="recovery2" component={recovery2Screen} />
+                <Stack.Screen name="codigo" component={CodigoV} />
+                <Stack.Screen name="home" component={home} />
             </Stack.Navigator>
         </NavigationContainer>
     );
