@@ -1,29 +1,6 @@
 {
-  "function": {
-    "clientAppLamda": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
-  "api": {
-    "clientAppApi": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "clientAppLamda",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    }
-  },
   "auth": {
-    "clientappafca7d37": {
+    "fixnowtechnicapp06f36df2": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

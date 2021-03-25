@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "clientappafca7d37_identitypool_afca7d37",
+    "identityPoolName": "fixnowtechnicapp06f36df2_identitypool_06f36df2",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "clientafca7d37",
-    "userPoolName": "clientappafca7d37_userpool_afca7d37",
+    "resourceNameTruncated": "fixnow06f36df2",
+    "userPoolName": "fixnowtechnicapp06f36df2_userpool_06f36df2",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "clientafca7d37_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "fixnow06f36df2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "afca7d37",
-    "resourceName": "clientappafca7d37",
+    "sharedId": "06f36df2",
+    "resourceName": "fixnowtechnicapp06f36df2",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
