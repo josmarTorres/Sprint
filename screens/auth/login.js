@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Dimensions } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { Avatar, Title } from 'react-native-paper';
-//import { login } from "../../api/aut";
+import { SignIn, userInfo } from "../../api/aut";
 import { LinearGradient } from 'expo-linear-gradient';
 import pallete from '../../config/colors'
+
 
 const LoginScreen = ({navigation}) => {
     
@@ -17,8 +18,10 @@ const LoginScreen = ({navigation}) => {
 
     const login = async () => {
         let data = {user: user, password: password}
-        let response = await login(data)
+        let response = await SignIn(user, password)
+        console.log(response)
     }
+
 
     return(
         <LinearGradient colors={[pallete.secondary, pallete.gray]} style={styles.container}>
@@ -56,7 +59,7 @@ const LoginScreen = ({navigation}) => {
             </View>
             <View style={{margin: 10}}>
                     <Text 
-                        onPress={() => navigation.navigate("recovery")}
+                        onPress={() => getLoggedDetails()}
                         style={{textAlign: 'center', color: "blue"}}>
                         Olvide mi contraseña
                     </Text>

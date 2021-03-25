@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
-import { StyleSheet, ScrollView, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
-import SearchBar from '../../Components/Searchbar'
+import SearchBar from '../../Components/Searchbar';
+import logo from '../../assets/imagen1.jpeg';
+//import imagen from '../../assets/imagen2.jpeg';
+
 
  const Home = ({navigation}) => {
       return(
@@ -12,6 +15,20 @@ import SearchBar from '../../Components/Searchbar'
                         
                 </Text>
                 <SearchBar/>
+
+                <ScrollView
+                    horizontal={true}
+                    //contentContainerStyle={{ width: `${100 * intervals}%` }}
+                    showsHorizontalScrollIndicator={false}
+                    scrollEventThrottle={200}
+                    decelerationRate="fast"
+                    pagingEnabled
+                  >
+                     <Image source={logo} style={{ width: 305, height: 159 }} /> 
+                     {/*<Image source={imagen} style={{ width: 305, height: 159 }} /> */}
+                    
+                </ScrollView>
+
                 <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

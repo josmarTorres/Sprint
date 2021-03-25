@@ -1,27 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { Searchbar } from 'react-native-paper';
 
 const SearchBar = () => {
-    return(
-        <View style={styles.container}>
-            <TextInput placeholder="Buscar..."/>
-        </View>
-    )
-}
-const styles = StyleSheet.create({
-    container:{
-        width: '100%',
-        height: 50,
-        backgroundColor: '#ffffff',
-        borderRadius: 8
-    },
-    SearchInput:{
-        width: '100%',
-        height: '100%',
-        paddingLeft: 8,
-        fontSize: 16
-    }
-})
+    const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
+  return (
+    <Searchbar
+      placeholder="Search"
+      onChangeText={onChangeSearch}
+      value={searchQuery}
+    />
+  );
+};
+
+
 
 export default SearchBar;
