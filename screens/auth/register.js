@@ -1,15 +1,33 @@
+import { Auth } from 'aws-amplify';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import { signUp } from "../../api/aut";
 
 const RegisterScreen = ({navigation}) => {
-
+  
   const [correo, setCorreo] = useState('')
   const [contraseña, setContraseña] = useState('')
   const [nombre, setNombre] = useState('')
   const [telefono, setTelefono] = useState('')
   const [apepat, setApepat] = useState('')
   const [apemat, setApemat] = useState('')
+  
+
+  const regist = async () =>{
+    let data = {
+      username: correo,
+      password: contraseña, 
+      phone_number: telefono, 
+      email: correo,
+      Nombre: nombre,
+      ApellidoPaterno: apepat,
+      ApellidoMaterno: apemat
+    }
+    let response = await signUp(data)
+    console.log(response)
+    navigation.navigate("login");
+    };
 
     return(
         <View style={styles.container}>
@@ -54,12 +72,13 @@ const RegisterScreen = ({navigation}) => {
             style = {{margin: 5, height: 60, width:300, borderColor: "#FFE3AD"}}
             label = "Contraseña"
             value = {contraseña}
+            secureTextEntry = {true}
             onChangeText = {contraseña => setContraseña(contraseña)}
           />
 
           <Button
             title = "Crear cuenta"
-            onPress={() => navigation.navigate("login")}
+            onPress={() => regist()}
           />
         </View>
       );

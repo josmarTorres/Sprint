@@ -1,21 +1,41 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper';
- 
+import { forgotPasswordSubmit } from "../../api/aut";
+
+
 const Recovery2Screen = ({navigation}) => {
 
-    const [contraseña, setContraseña] = useState('')
+    const [user, setUser] = useState('')
+    const [newcontraseña, setNewcontraseña] = useState('')
+    const [code, setCode] = useState('')
+
+    const ConfirmPass = async () =>{
+        let data = {code: code, user: user, password: newcontraseña }
+        let response = await forgotPasswordSubmit(user, code, newcontraseña)
+        console.log(response)
+        navigation.navigate("login")
+    }
   
       return(
             <View style={styles.container}>
                 <Text> 
-                    ingrese la nueva contraseña
+                    ingrese el codigo que recibio
                 </Text>
                 <TextInput
                     style = {{margin: 10, height: 60, width:300, borderColor: "#FFE3AD"}}
-                    label = "Contraseña"
-                    value = {contraseña}
-                    onChangeText = {contraseña => setContraseña(contraseña)}
+                    label = "codigo"
+                    value = {code}
+                    onChangeText = {code => setCode(code)}
+                />
+                <Text> 
+                    ingrese el usuario
+                </Text>
+                <TextInput
+                    style = {{margin: 10, height: 60, width:300, borderColor: "#FFE3AD"}}
+                    label = "Usuario"
+                    value = {user}
+                    onChangeText = {user => setUser(user)}
                 />
 
                 <Text>
@@ -24,8 +44,9 @@ const Recovery2Screen = ({navigation}) => {
                 <TextInput
                     style = {{margin: 5, height: 60, width:300, borderColor: "#FFE3AD"}}
                     label = "Contraseña"
-                    value = {contraseña}
-                    onChangeText = {contraseña => setContraseña(contraseña)}
+                    value = {newcontraseña}
+                    secureTextEntry = {true}
+                    onChangeText = {newcontraseña => setNewcontraseña(newcontraseña)}
                 />
                 <TouchableOpacity
                     onPress={() => alert('Hello, world!')}
@@ -36,7 +57,7 @@ const Recovery2Screen = ({navigation}) => {
                 </TouchableOpacity>
                 <Button
                     title = "Confirmar"
-                    onPress={() => navigation.navigate("login")}
+                    onPress={() => ConfirmPass()}
                 />
             </View>
 

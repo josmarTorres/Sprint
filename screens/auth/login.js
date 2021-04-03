@@ -20,6 +20,12 @@ const LoginScreen = ({navigation}) => {
         let data = {user: user, password: password}
         let response = await SignIn(user, password)
         console.log(response)
+        console.log(response.code)
+        if (response.code==='UserNotFoundException') {
+            alert('correo o contraseña invalido') 
+            
+        }else
+            navigation.navigate("home")
     }
 
 
@@ -53,15 +59,22 @@ const LoginScreen = ({navigation}) => {
                 <View style = {{margin: 5, flex: 1}}>
                     <Button
                         title = "registro"
-                        onPress={() => navigation.navigate("home")}
+                        onPress={() => navigation.navigate("register")}
                     />
                 </View>             
             </View>
             <View style={{margin: 10}}>
                     <Text 
-                        onPress={() => getLoggedDetails()}
+                        onPress={() => navigation.navigate("recovery")}
                         style={{textAlign: 'center', color: "blue"}}>
                         Olvide mi contraseña
+                    </Text>
+                </View>   
+                <View style={{margin: 10}}>
+                    <Text 
+                        onPress={() => navigation.navigate("confirm")}
+                        style={{textAlign: 'center', color: "blue"}}>
+                        Confirmar cuenta
                     </Text>
                 </View>   
         </LinearGradient>

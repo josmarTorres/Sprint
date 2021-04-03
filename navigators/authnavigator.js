@@ -7,6 +7,7 @@ import recoveryScreen from "../screens/auth/recovery";
 import recovery2Screen from "../screens/auth/recovery2";
 import CodigoV from '../screens/Codigo';
 import home from '../screens/auth/Inicio';
+import confirm from '../screens/auth/ConfirmAccount';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ function AuthNavigator() {
                 <Stack.Screen name="recovery2" component={recovery2Screen} />
                 <Stack.Screen name="codigo" component={CodigoV} />
                 <Stack.Screen name="home" component={home} />
+                <Stack.Screen name="confirm" component={confirm} />
             </Stack.Navigator>
         </NavigationContainer>
     );

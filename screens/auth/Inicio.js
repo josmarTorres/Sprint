@@ -1,42 +1,45 @@
 import React, {useState} from 'react';
 import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
-import Constants from 'expo-constants';
+import Constants from 'expo-constants'
 import SearchBar from '../../Components/Searchbar';
-import logo from '../../assets/imagen1.jpeg';
-//import imagen from '../../assets/imagen2.jpeg';
-
+import Carrusel from '../../Components/Carousel';
+import CarouselCards from '../../CarouselCards';
 
  const Home = ({navigation}) => {
       return(
           <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
+                
+                <SearchBar style = {styles.searchbar}/>
                 <Text style={styles.text}>
-                        Bienvenido
-                        
+                        Bienvenido        
                 </Text>
-                <SearchBar/>
+                <Text style={styles.anuncio}>
+                        Oferta del dia        
+                </Text>
+                <CarouselCards/>
 
-                <ScrollView
-                    horizontal={true}
-                    //contentContainerStyle={{ width: `${100 * intervals}%` }}
-                    showsHorizontalScrollIndicator={false}
-                    scrollEventThrottle={200}
-                    decelerationRate="fast"
-                    pagingEnabled
-                  >
-                     <Image source={logo} style={{ width: 305, height: 159 }} /> 
-                     {/*<Image source={imagen} style={{ width: 305, height: 159 }} /> */}
-                    
-                </ScrollView>
-
-                <Text style={styles.text}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-          </Text>
+                <Text style={styles.texto}>
+                        Categorias
+                </Text>
+                <Image
+                  style={styles.categorias}
+                  source={{
+                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                  }}
+                />
+                <Image
+                  style={styles.categorias}
+                  source={{
+                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                  }}
+                />
+                <Image
+                  style={styles.categorias}
+                  source={{
+                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                  }}
+                />
                 <Button
                     title = "Confirmar"
                     onPress={() => navigation.navigate("login")}
@@ -49,14 +52,32 @@ import logo from '../../assets/imagen1.jpeg';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      //marginTop: Constants.statusBarHeight,
+      marginTop: Constants.statusBarHeight,
+      backgroundColor: '#ffffff',
     },
     scrollView: {
-      backgroundColor: '#ffb72e',
-      //marginHorizontal: 20,
+      backgroundColor: '#ffffff',
+      
     },
     text: {
       fontSize: 42,
+      backgroundColor: '#ffb72e'
+    },
+    anuncio:{
+      fontSize: 30,
+      backgroundColor: '#ffb72e',
+    },
+    texto:{
+      fontSize: 25,
+      backgroundColor: '#ffffff',
+
+    },
+    categorias:{
+      flex: 1,
+      flexDirection: 'column',
+      width: 100,
+    height: 100,
+    marginLeft: 10,
     },
   });
 export default  Home;

@@ -1,33 +1,26 @@
 import React, {useRef, useState} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import PhoneInput from 'react-native-phone-input';
-import { ForgotPassword } from "../../api/aut";
+import { confirmSignUp } from "../../api/aut";
 
  
 const RecoveryScreen = ({navigation}) => {
 
     const [user, setUser] = useState('')
-    const phoneRef = useRef(undefined);
+    const [code, setCode] = useState('');
 
-    const ForgotPass = async () =>{
-      let data = {user: user}
-      let response = await ForgotPassword(user)
-      console.log(response)
-      navigation.navigate("recovery2")
-  }
 
+    const confirm = async () =>{
+      let data = {username:user, code: code}
+      let response = await confirmSignUp(user, code);
+      console.log(response);
+      navigation.navigate("login");
+    }
+      
       return(
           <View style={styles.container}>
-            <Text>Ingrese el numero de telefono</Text>
+            <Text>Ingrese el correo</Text>
   
-           {/*} <PhoneInput
-              style = {{margin: 5, height: 60, width:300, backgroundColor: "#ffffff", borderRadius:10}}
-              label = "telefono"
-              value = {telefono}
-              ref = {phoneRef}
-              onChangePhoneNumber = {telefono =s> setTelefono(telefono)}
-      />*/}
       <TextInput
       style = {{margin: 5, height: 60, width:300, backgroundColor: "#ffffff", borderRadius:10}}
       label = "correo electronico"
@@ -35,10 +28,16 @@ const RecoveryScreen = ({navigation}) => {
       onChangeText = {user => setUser(user)}
       />
 
+      <TextInput
+      style = {{margin: 5, height: 60, width:300, backgroundColor: "#ffffff", borderRadius:10}}
+      label = "codigo de verificacion"
+      value = {code}
+      onChangeText = {code => setCode(code)}
+      />
             
             <Button
-              title = "Enviar"
-              onPress={() => ForgotPass()}
+              title = "Confirmar"
+              onPress={() => confirm()}
             />
             
           </View>
