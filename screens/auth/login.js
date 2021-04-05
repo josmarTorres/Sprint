@@ -69,14 +69,15 @@ const LoginScreen = ({navigation}) => {
                         style={{textAlign: 'center', color: "blue"}}>
                         Olvide mi contraseña
                     </Text>
-                </View>   
+                </View> 
+                
                 <View style={{margin: 10}}>
                     <Text 
                         onPress={() => navigation.navigate("confirm")}
                         style={{textAlign: 'center', color: "blue"}}>
                         Confirmar cuenta
                     </Text>
-                </View>   
+                </View> 
         </LinearGradient>
     );
 };

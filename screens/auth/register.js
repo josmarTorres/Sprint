@@ -26,7 +26,7 @@ const RegisterScreen = ({navigation}) => {
     }
     let response = await signUp(data)
     console.log(response)
-    navigation.navigate("login");
+    navigation.navigate("confirm");
     };
 
     return(
