@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, Dimensions } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { Avatar, Title } from 'react-native-paper';
 import { SignIn, userInfo } from "../../api/aut";
@@ -24,15 +24,18 @@ const LoginScreen = ({navigation}) => {
         if (response.code==='UserNotFoundException') {
             alert('correo o contraseña invalido') 
             
-        }else
+        }if (response.code==='NotAuthorizedException') {
+            alert('correo o contraseña invalido') 
+        }else{
             navigation.navigate("home")
+        }
     }
 
-
     return(
-        <LinearGradient colors={[pallete.secondary, pallete.gray]} style={styles.container}>
+        <LinearGradient colors={[pallete.blanco,pallete.blanco,pallete.blanco, pallete.secondary]} style={styles.container}>
             <View style={{flexDirection: "row", justifyContent: "center"}}>
-                <Avatar.Icon size={150} icon="account" />
+                {/*<Avatar.Image size={150} source={require('../../assets/Fix.png')} />*/}
+                <Image style={styles.imagen} source={require('../../assets/Fix.png')}/>
             </View>
             <Title style={{textAlign: 'center'}}>Inicio de sesion</Title>
             <TextInput
@@ -64,20 +67,12 @@ const LoginScreen = ({navigation}) => {
                 </View>             
             </View>
             <View style={{margin: 10}}>
-                    <Text 
-                        onPress={() => navigation.navigate("recovery")}
-                        style={{textAlign: 'center', color: "blue"}}>
-                        Olvide mi contraseña
-                    </Text>
-                </View> 
-                
-                <View style={{margin: 10}}>
-                    <Text 
-                        onPress={() => navigation.navigate("confirm")}
-                        style={{textAlign: 'center', color: "blue"}}>
-                        Confirmar cuenta
-                    </Text>
-                </View> 
+                <Text 
+                    onPress={() => navigation.navigate("recovery")}
+                    style={{textAlign: 'center', color: "blue"}}>
+                    Olvide mi contraseña
+                </Text>
+            </View>
         </LinearGradient>
     );
 };
@@ -90,6 +85,11 @@ const styles = StyleSheet.create({
       //alignItems: 'center',
       justifyContent: 'center',
       padding: 10
+    },
+    imagen:{
+        width: 210,
+        height: 100,
+        margin: 10,
     }
 });
 

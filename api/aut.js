@@ -14,7 +14,7 @@ export async function SignIn(username,password) {
 }
     export async function userInfo(){
         let userData = await Auth.currentUserInfo();
-        console.log("Amplify currentUserInfo",userInfo.attributes);
+        console.log("Amplify currentUserInfo",Auth.currentUserInfo());
         return userData;
     }
     
@@ -56,8 +56,13 @@ export async function SignIn(username,password) {
             //Metodo para cambiar contraseña recibe el nombre de usuario, código y contraseña
             try {
                 console.log('==== ForgotPasswordSubmit ====');
-                let resultData= Auth.forgotPasswordSubmit(user, code, password);
+                let resultData = await Auth.forgotPasswordSubmit(user, code, password);
+                console.log("ForgotPasswordSubmit responde " + JSON.stringify(resultData));
+                if(resultData === undefined) {
+                    resultData = {"code": "passwordChanged"}
+                }
                 return resultData;
+
             } catch (error) {
                 return error;
             }

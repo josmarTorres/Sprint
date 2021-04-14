@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { forgotPasswordSubmit } from "../../api/aut";
+import pallete from '../../config/colors'
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const Recovery2Screen = ({navigation}) => {
@@ -11,13 +13,29 @@ const Recovery2Screen = ({navigation}) => {
     const [code, setCode] = useState('')
 
     const ConfirmPass = async () =>{
-        let data = {code: code, user: user, password: newcontraseña }
         let response = await forgotPasswordSubmit(user, code, newcontraseña)
         console.log(response)
-        navigation.navigate("login")
+        try{
+            if (response.code==='UserNotFoundException') {
+                alert('Correo o contraseña invalido') 
+            } else if (response.code==='CodeMismatchException'){
+                alert('Codigo de verificacion no valido, por favor intente nuevamente.')
+            }else if (response.code==='LimitExceededException') {
+                alert('Ha exedido el limite de intentos, intentelo mas tarde')
+            }else if(response.code==='passwordChanged'){
+                alert('La contraseña ha sido cambiada con exito.')
+                navigation.navigate("login")
+            }
+        }catch{
+            console.log(response.code)
+        }
     }
+        
+    
+//LimitExceededException
   
       return(
+        <LinearGradient colors={[pallete.blanco,pallete.blanco,pallete.blanco, pallete.secondary]} style={styles.container}>
             <View style={styles.container}>
                 <Text> 
                     ingrese el codigo que recibio
@@ -48,18 +66,12 @@ const Recovery2Screen = ({navigation}) => {
                     secureTextEntry = {true}
                     onChangeText = {newcontraseña => setNewcontraseña(newcontraseña)}
                 />
-                <TouchableOpacity
-                    onPress={() => alert('Hello, world!')}
-                    style={{ backgroundColor: '#FFFFFF', height: 30, width:100, borderRadius:5 }}>
-                        <Text style={{marginTop:5 ,textAlign: 'center'}}>
-                            Confirmar
-                        </Text>
-                </TouchableOpacity>
                 <Button
                     title = "Confirmar"
                     onPress={() => ConfirmPass()}
                 />
             </View>
+            </LinearGradient>
 
         );
     };
@@ -67,7 +79,6 @@ const Recovery2Screen = ({navigation}) => {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: '#FFE3AD',
         alignItems: 'center',
         justifyContent: 'center',
       }

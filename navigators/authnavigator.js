@@ -1,13 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import loginScreen from "../screens/auth/login";
-import registerScreen from "../screens/auth/register";
-import recoveryScreen from "../screens/auth/recovery";
-import recovery2Screen from "../screens/auth/recovery2";
+import LoginScreen from "../screens/auth/login";
+import RegisterScreen from "../screens/auth/register";
+import RecoveryScreen from "../screens/auth/recovery";
+import Recovery2Screen from "../screens/auth/recovery2";
 import CodigoV from '../screens/Codigo';
-import home from '../screens/auth/Inicio';
-import confirm from '../screens/auth/ConfirmAccount';
+import Home from '../screens/mainflow/Inicio';
+import Confirm from '../screens/auth/ConfirmAccount';
+import Selec from '../screens/mainflow/Seleccion';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,7 @@ function AuthNavigator() {
             <Stack.Navigator>
                 <Stack.Screen 
                     name="login"
-                    component={loginScreen} 
+                    component={LoginScreen} 
                     options={{
                         headerShown: false,
                         headerStyle: {
@@ -27,12 +28,21 @@ function AuthNavigator() {
                         headerTintColor: "#FFFFFF"
                     }} 
                 />
-                <Stack.Screen name="register" component={registerScreen} />
-                <Stack.Screen name="recovery" component={recoveryScreen} />
-                <Stack.Screen name="recovery2" component={recovery2Screen} />
+                <Stack.Screen name="register" component={RegisterScreen} />
+                <Stack.Screen name="recovery" component={RecoveryScreen} />
+                <Stack.Screen name="recovery2" component={Recovery2Screen} />
                 <Stack.Screen name="codigo" component={CodigoV} />
-                <Stack.Screen name="home" component={home} />
-                <Stack.Screen name="confirm" component={confirm} />
+                
+                <Stack.Screen 
+                    name="home" 
+                    component={Home}
+                    
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen name="confirm" component={Confirm} />
+                <Stack.Screen name="selec" component={Selec}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
