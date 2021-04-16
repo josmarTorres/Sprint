@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView } from 'react-native';
+import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView, FlatList, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { Button, Card, Title, Paragraph } from 'react-native-paper'
 import Constants from 'expo-constants'
 
 
+
 const Seleccion = ({ navigation }) => {
+
+  //Dimensiones
+  const windowWidth = useWindowDimensions().width;
+  const windowHeight = useWindowDimensions().height;
 
   const usersData = [
     {
@@ -43,85 +48,110 @@ const Seleccion = ({ navigation }) => {
       origin: 'url'
     }
   ]
-  return (
-    <SafeAreaView>
-      <ScrollView>
-        <View>
-            <ScrollView style={{ flex: 1, flexDirection: 'column' }}>
-                <View style={{fex: 1, flexDirection: 'row'}}>
-                    <View>
-                        <Image
-                            style= {{ margin: 10, height: 100, width: 120 }}
-                            source = {{uri: 'https://www.hoyfortnite.com/images/skins/Marigold_1.png'}}
-                        />
-                    </View>
-                    {/*cards con info*/}
-                    <TouchableOpacity style={styles.orderCard} onPress={() => navigation.navigate('DetailsScreen')}>
-                        <View style={{
-                            backgroundColor: item.daysPassed == 0 ? Colors.Green : item.daysPassed == 1 ? Colors.Yellow : item.daysPassed > 1 ? Colors.Red : Colors.Red,
-                            width: windowHeight / 5.5
-                        }}>
-                        </View>
-                        <View style={styles.orderCardContent}>
-                            <Text style={{ fontWeight: 'bold' }}>Número de orden:{item.orderNumber}</Text>
-                            <Text style={{ fontWeight: 'bold' }}>{item.description}</Text>
-                            <Text>Fecha de registro: {item.registerDate}</Text>
-                            <Text>Fecha de atención: {item.atentionDate}</Text>
-                            <Text>Cliente: {item.client}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <View>
-                        <Text>
-                        la skin Marigold (Midas chica/mujer) llega a Fortnite, en forma del Pack de Desafío Toque Dorado. Os contamos qué incluye, y cómo conseguirlo.
-El 09/03/2021 llegó a Fortnite Battle Royale el skin Marigold, que es la versión femenina de Midas. Forma parte del Pack de Desafío Toque Dorado de Fortnite, y se filtró previamente, con la llegada del parche 15.50.
-                        </Text>
-                    </View>
-                </View>
-                {usersData.map(u => (
-                <Card style={{ margin: 10, flex: 1, flexDirection: 'row'  }}>
-                    <View>
-                        <Card.Cover source={{ uri: u.avatar }} style={{width: 100, heigth: 100}}/>
-                    </View>
-                    <View>
-                        <Card.Content>
-                            <Title>{u.name}</Title>
-                            <Paragraph>{u.desc}</Paragraph>
-                        </Card.Content>
-                        <Card.Actions>
-                            <Button onPress = {navigation.navigate("selec")}>Contratar</Button>
-                        </Card.Actions>
-                    </View>
-                </Card>
-                ))}
-            </ScrollView>
+
+  const styles = StyleSheet.create({
+    scrollView: {
+      backgroundColor: '#ffffff',
+    },
+    text: {
+      fontSize: 30,
+      color: '#000000',
+      backgroundColor: '#ffb72e'
+    },
+    anuncio: {
+      fontSize: 15,
+      backgroundColor: '#ffb72e',
+    },
+    texto: {
+      fontSize: 25,
+      backgroundColor: '#ffffff',
+  
+    },
+    categorias: {
+      width: 150,
+      height: 200,
+      margin: 10,
+    },
+    orderCard: {
+      backgroundColor: '#FFFFFF',
+      height: windowHeight / 5.5,
+      elevation: 5,
+      marginLeft: 10,
+      marginRight: 10,
+      marginTop: 6,
+      marginBottom: 6,
+      borderRadius: 3,
+      overflow: 'hidden',
+      flex: 1,
+      flexDirection: 'row'
+    },
+    orderCardIcon: {
+        backgroundColor: '#1f62cf',
+        width: windowHeight / 5.5,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    supBar: {
+      flex: 4,
+      flexDirection: 'row',
+      justifyContent:'center',
+      backgroundColor: '#FFB72E',
+      height: 20,
+      width: windowWidth
+    },
+    menuBar: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent:'center',
+        height: 30,
+        width: windowWidth,
+        backgroundColor: '#FFB72E'
+    },
+    orderCardContent: {
+        flex: 1,
+        flexDirection: 'column',
+        padding: 5,
+        justifyContent:'center'
+    }
+  })
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity style={styles.orderCard} >
+        <View style = {{ width: windowHeight / 5.5 }}>
+          <Image style = {{ width: windowHeight / 5.5, height: 130 }} source = {{ uri: item.avatar }}/>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <View style={styles.orderCardContent}>
+            <Text style={{ fontWeight: 'bold' }}>Nombre: {item.name}</Text>
+            <Text>{item.desc}</Text>
+        </View>
+    </TouchableOpacity>
   );
+
+  return (
+    <>
+      <View style={{width: windowWidth, flex: 1, flexDirection: 'column'}}>
+        <View style = {styles.menuBar}>
+          <Button icon="menu" color={'#000000'}></Button>
+        </View>
+        <View style = {styles.supBar}>
+          <Text>Seleccion de servicio</Text>
+        </View>
+      </View>
+      <SafeAreaView>
+        <SafeAreaView style={styles.container}>
+          <FlatList
+              data={usersData}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+              refreshing={false}
+              onRefresh={() => reloadData()}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+    </>
+  );
+
 };
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#ffffff',
 
-  },
-  text: {
-    fontSize: 30,
-    color: '#000000',
-    backgroundColor: '#ffb72e'
-  },
-  anuncio: {
-    fontSize: 15,
-    backgroundColor: '#ffb72e',
-  },
-  texto: {
-    fontSize: 25,
-    backgroundColor: '#ffffff',
-
-  },
-  categorias: {
-    width: 150,
-    height: 200,
-    margin: 10,
-  },
-});
 export default Seleccion;

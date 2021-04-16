@@ -42,7 +42,13 @@ function AuthNavigator() {
                     }}
                 />
                 <Stack.Screen name="confirm" component={Confirm} />
-                <Stack.Screen name="selec" component={Selec}/>
+                <Stack.Screen 
+                    name="selec" 
+                    component={Selec}
+                    options={{
+                        headerShown: false
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
