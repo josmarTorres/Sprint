@@ -77,11 +77,6 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Button
-          icon="menu"
-          color={'#ffb72e'}
-
-        ></Button>
         <SearchBar style={styles.searchbar} />
         <View style={styles.text}>
 

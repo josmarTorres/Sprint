@@ -1,5 +1,6 @@
 import React from 'react';
-import AuthNavigator from "./navigators/authnavigator"
+//import AuthNavigator from "./navigators/authnavigator"
+import AuthNavigator from "./navigators/mainnavigator"
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './src/aws-exports';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';

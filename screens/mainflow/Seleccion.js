@@ -129,27 +129,17 @@ const Seleccion = ({ navigation }) => {
   );
 
   return (
-    <>
-      <View style={{width: windowWidth, flex: 1, flexDirection: 'column'}}>
-        <View style = {styles.menuBar}>
-          <Button icon="menu" color={'#000000'}></Button>
-        </View>
-        <View style = {styles.supBar}>
-          <Text>Seleccion de servicio</Text>
-        </View>
-      </View>
-      <SafeAreaView>
-        <SafeAreaView style={styles.container}>
-          <FlatList
-              data={usersData}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-              refreshing={false}
-              onRefresh={() => reloadData()}
-          />
-        </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+            data={usersData}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+            refreshing={false}
+            onRefresh={() => reloadData()}
+        />
       </SafeAreaView>
-    </>
+    </ScrollView>
   );
 
 };

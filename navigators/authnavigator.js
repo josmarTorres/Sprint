@@ -32,23 +32,7 @@ function AuthNavigator() {
                 <Stack.Screen name="recovery" component={RecoveryScreen} />
                 <Stack.Screen name="recovery2" component={Recovery2Screen} />
                 <Stack.Screen name="codigo" component={CodigoV} />
-                
-                <Stack.Screen 
-                    name="home" 
-                    component={Home}
-                    
-                    options={{
-                        headerShown: false
-                    }}
-                />
                 <Stack.Screen name="confirm" component={Confirm} />
-                <Stack.Screen 
-                    name="selec" 
-                    component={Selec}
-                    options={{
-                        headerShown: false
-                    }}
-                />
             </Stack.Navigator>
         </NavigationContainer>
     );
