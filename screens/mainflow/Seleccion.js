@@ -15,36 +15,36 @@ const Seleccion = ({ navigation }) => {
     {
       key: 1,
       name: 'plomeria',
-      avatar: 'https://picsum.photos/800 ',
-      desc: 'descripcion 1',
+      avatar: 'https://media-adsa.camilyo.software/media-adsa/static/3681/273.jpg',
+      desc: 'Aqui podras ver los servicios de plomeria',
       origin: 'asset'
     },
     {
       key: 2,
-      name: 'shadow Midas',
-      avatar: 'https://static.wikia.nocookie.net/featteca/images/a/a1/Shadow_Midas_-_Boss_-_Fortnite.png/revision/latest?cb=20201027223734&path-prefix=es',
-      desc: 'descripcion 2 ',
+      name: 'Electricidad',
+      avatar: 'https://solar-energia.net/uploads/cms/electricidad.webp',
+      desc: 'Aqui podras ver los servicios de Electricidad ',
       origin: "url"
     },
     {
       key: 3,
-      name: 'Herman Mankiewicz',
-      avatar: 'https://los40.com/los40/imagenes/2020/11/20/album/1605868442_147516_1605873111_album_normal.jpg',
-      desc: 'descripcion 3 ',
+      name: 'Mascotas',
+      avatar: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/11/Mascota-composicion-fotografica.jpg',
+      desc: 'Aqui podras ver los servicios para mascotas',
       oringin: "url"
     },
     {
       key: 4,
-      name: 'Guillermo Arriaga',
-      avatar: 'https://cdn-3.expansion.mx/dims4/default/0d5c96e/2147483647/strip/true/crop/1054x1500+0+0/resize/1800x2562!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fb8%2Fc4%2F2e1a1e7f4f2cacadec08268c27ac%2Fqui399quien50leonardomanzo111017lm41.jpg',
-      desc: 'descripcion 4 ',
+      name: 'Colocacion de azulejo',
+      avatar: 'https://www.ondacer.com/upload/stblog/1/253/257/253257large.jpg',
+      desc: 'Aqui podras ver los servicios de colocacion de azulejos',
       origin: "url"
     },
     {
       key: 5,
-      name: 'Orson welles',
-      avatar: 'https://www.biografiasyvidas.com/biografia/w/fotos/welles_orson.jpg',
-      desc: 'descripcion 5 ',
+      name: 'Pintura',
+      avatar: 'https://www.casamyers.com.mx/blog/wp-content/uploads/2018/08/pinturas-y-coloramico-1024x571.jpg',
+      desc: 'Aqui podras ver los servicios de pintura',
       origin: 'url'
     }
   ]
