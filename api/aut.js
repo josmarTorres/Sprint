@@ -76,3 +76,11 @@ export async function SignIn(username,password) {
                 console.log('error confirming sign up', error);
             }
         }
+
+        export async function signOut() {
+            try {
+                await Auth.signOut();
+            } catch (error) {
+                console.log('error signing out: ', error);
+            }
+        }

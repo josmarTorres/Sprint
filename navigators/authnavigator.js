@@ -9,6 +9,7 @@ import CodigoV from '../screens/Codigo';
 import Home from '../screens/mainflow/Inicio';
 import Confirm from '../screens/auth/ConfirmAccount';
 import Selec from '../screens/mainflow/Seleccion';
+import Drawer from './mainnavigator';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ function AuthNavigator() {
                 <Stack.Screen name="recovery2" component={Recovery2Screen} />
                 <Stack.Screen name="codigo" component={CodigoV} />
                 <Stack.Screen name="confirm" component={Confirm} />
+                <Stack.Screen name="drawer" component={Drawer} />
             </Stack.Navigator>
         </NavigationContainer>
     );
