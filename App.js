@@ -21,6 +21,10 @@ const theme = {
   },
 };
 
+function funcion (){
+    console.log('buenas noches, queridos amigos')
+}
+
 const App = () => {
   const [user, setUser] = useState(null)
   useEffect(()=>{

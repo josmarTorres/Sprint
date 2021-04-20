@@ -6,15 +6,17 @@ import pallete from '../../config/colors'
 import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 import { signOut } from "../../api/aut"
+import { funcion } from "../../App";
 
 
 const GetOut = ({navigation}) => {
     
-    const cerrar = () =>{
-        navigation.navigate("login")
-        signOut()
-    
-}
+    {/*const cerrar = () =>{
+        signOut();
+        funcion();//yo tampoco te excuho desde hace media hora xD
+        
+    }*/}
+
       return(
         <LinearGradient colors={[pallete.blanco,pallete.blanco,pallete.blanco, pallete.secondary]} style={styles.container}>
             <View style={styles.container}>
@@ -24,7 +26,7 @@ const GetOut = ({navigation}) => {
                 
                 <Button
                     title = "Confirmar"
-                    onPress={() => cerrar()}
+                    {/*onPress={() => cerrar()}*/}
                 />
                 <Button
                     title = "Cancelar"

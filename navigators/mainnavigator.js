@@ -1,7 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { SignOut } from '../api/aut';
 
 //Pantallas del drawer navigation
 import Home from '../screens/mainflow/Inicio';
@@ -31,31 +30,18 @@ function mainDrawerNavigator() {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
-
             <Drawer.Screen 
-                    name="selec" 
-                    component={Selec}
-                    options={{
-                        headerShown: true,
-                        title: "Servicios",
-                        headerStyle: {
-                            backgroundColor: "#FFB72E"
-                        }
-                    }}
-                    
-                />
-                <Drawer.Screen 
-                    name="Home" 
-                    component={Home}
-                    options={{
-                        headerShown: true,
-                        title: "Inicio",
-                        headerStyle: {
-                            backgroundColor: "#FFB72E"
-                        }
-                    }}
-                />
-                
+                name="Home" 
+                component={Home}
+                options={{
+                    headerShown: true,
+                    title: "Inicio",
+                    headerStyle: {
+                        backgroundColor: "#FFB72E"
+                    }
+                }}
+            />
+
                 <Drawer.Screen 
                     name="SelTec" 
                     component={SelTec}
@@ -81,8 +67,33 @@ function mainDrawerNavigator() {
                     
                 />
                 <Drawer.Screen 
-                    name="Salir" 
+                    name="servicios" 
+                    component={WishL}
+                    options={{
+                        headerShown: true,
+                        title: "Mis servicios",
+                        headerStyle: {
+                            backgroundColor: "#FFB72E"
+                        }
+                    }}
+                    
+                />
+                <Drawer.Screen 
+                    name="selec" 
+                    component={Selec}
+                    options={{
+                        headerShown: true,
+                        title: "Servicios",
+                        headerStyle: {
+                            backgroundColor: "#FFB72E"
+                        }
+                    }}
+                    
+                />
+                {/*<Drawer.Screen 
+                    name="cerrar"
                     component={salir}
+                    independent={true}
                     options={{
                         headerShown: true,
                         title: "Cerrar sesion",
@@ -91,7 +102,7 @@ function mainDrawerNavigator() {
                         }
                     }}
                     
-                />
+                />*/}
                 {/**/}
             </Drawer.Navigator>
         </NavigationContainer>

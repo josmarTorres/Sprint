@@ -107,7 +107,7 @@ const Home = ({ navigation }) => {
                   <Paragraph>{u.desc}</Paragraph>
                 </Card.Content>
                 <Card.Actions>
-                <Button onPress = {navigation.navigate("selec")}>No pos va</Button>
+                <Button>No pos va</Button>
                 </Card.Actions>
               </Card>
               /*<RenderCards item = {u}/>*/
