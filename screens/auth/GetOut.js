@@ -11,11 +11,11 @@ import { funcion } from "../../App";
 
 const GetOut = ({navigation}) => {
     
-    {/*const cerrar = () =>{
+    /*const cerrar = () =>{
         signOut();
         funcion();//yo tampoco te excuho desde hace media hora xD
         
-    }*/}
+    }*/
 
       return(
         <LinearGradient colors={[pallete.blanco,pallete.blanco,pallete.blanco, pallete.secondary]} style={styles.container}>
@@ -24,10 +24,10 @@ const GetOut = ({navigation}) => {
                     ¿Esta seguro?
                 </Text>
                 
-                <Button
+                {/*<Button
                     title = "Confirmar"
-                    {/*onPress={() => cerrar()}*/}
-                />
+                    onPress={() => cerrar()}
+                />*/}
                 <Button
                     title = "Cancelar"
                     onPress={() => navigation.navigate("Home")}
