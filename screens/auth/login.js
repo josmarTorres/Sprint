@@ -5,18 +5,19 @@ import { Avatar, Title } from 'react-native-paper';
 import { SignIn, userInfo } from "../../api/aut";
 import { LinearGradient } from 'expo-linear-gradient';
 import pallete from '../../config/colors'
-
+import { ContextoAutentication } from '../../Components/AutenticationContex'
 
 const LoginScreen = ({navigation}) => {
     
     const [user, setUser] = React.useState('');
     const [password, setPassword] = React.useState('');
 
+    const { login } = React.useContext(ContextoAutentication);
     // -- Obtiene la largo y ancho de la pantalla -- //
     //const windowWidth = Dimensions.get('window').width;
     //const windowHeight = Dimensions.get('window').height;
 
-    const login = async () => {
+    {/*const login = async () => {
         let data = {user: user, password: password}
         let response = await SignIn(user, password)
         console.log(response)
@@ -29,7 +30,7 @@ const LoginScreen = ({navigation}) => {
         }else{
             navigation.navigate("home")
         }
-    }
+    }*/}
 
     return(
         <LinearGradient colors={[pallete.blanco,pallete.blanco,pallete.blanco, pallete.secondary]} style={styles.container}>
@@ -56,7 +57,7 @@ const LoginScreen = ({navigation}) => {
                     <Button
                         
                         title = "Iniciar sesión"
-                        onPress={() => login()}
+                        onPress={() => login(user, password)}
                     />
                 </View>
                 <View style = {{margin: 5, flex: 1}}>

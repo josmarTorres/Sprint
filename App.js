@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useMemo} from 'react';
 import AuthNavigator from "./navigators/authnavigator"
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './src/aws-exports';
@@ -6,6 +6,8 @@ import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import pallete from './config/colors'
 import { userInfo } from './api/aut';
 import MainDrawerNavigator from './navigators/mainnavigator';
+import { SignIn } from "./api/aut";
+import { ContextoAutentication } from './Components/AutenticationContex';
  
 Amplify.configure(awsconfig);
 const theme = {
@@ -26,11 +28,43 @@ function funcion (){
 }
 
 const App = () => {
+
+
   const [user, setUser] = useState(null)
   useEffect(()=>{
     console.log("abrir la aplicacion");
     ObtenerDetalleUser();
   },[]); 
+  
+
+  const contextoAutenticacion = useMemo(() => ({
+    login: async (user, password) => {
+      let data = {user: user, password: password}
+      let response = await SignIn(user, password)
+      console.log(response)
+      console.log(response.code)
+      if (response.code==='UserNotFoundException') {
+          alert('correo o contraseña invalido') 
+          
+      }if (response.code==='NotAuthorizedException') {
+          alert('correo o contraseña invalido') 
+      }else{
+          //navigation.navigate("home")
+          
+          setUser(response);
+      }
+  }, 
+  signOut: async() => {
+    try {
+        await Auth.signOut();
+        setUser(null);
+    } catch (error) {
+        console.log('error signing out: ', error);
+    }
+}
+
+    })) 
+
   const ObtenerDetalleUser = async () => {
     let userData = null;
     console.log("Mostrar lo que hay en user data", userData);
@@ -40,11 +74,13 @@ const App = () => {
   }
   return (
     <PaperProvider theme={theme}>
+      <ContextoAutentication.Provider value={contextoAutenticacion}>
       {
         user ? <MainDrawerNavigator/> : <AuthNavigator/>
       }
-      
+    </ContextoAutentication.Provider>
     </PaperProvider>
+    
   );
 };
 
