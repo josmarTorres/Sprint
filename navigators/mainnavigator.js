@@ -37,32 +37,32 @@ function Visual (props){
             <ScrollView>
                 <Drawer.Section>
                     <Drawer.Item
-                        icon="logout"
+                        icon="home"
                         label="Inicio"
                         onPress={() => props.navigation.navigate("Home")}
                     />
                     <Drawer.Item
-                        icon="logout"
+                        icon="face"
                         label="Perfil"
                         onPress={() => props.navigation.navigate("PerUser")}
                     />
                     <Drawer.Item
-                        icon="logout"
+                        icon="shopping-search"
                         label="Carrito de compras"
                         onPress={() => props.navigation.navigate("Carrito")}
                     />
                     <Drawer.Item
-                        icon="logout"
+                        icon="shopping"
                         label="mis servicios"
                         onPress={() => props.navigation.navigate("selec")}
                     />
                     <Drawer.Item
-                        icon="logout"
+                        icon="hammer"
                         label="Lista de tecnicos"
                         onPress={() => props.navigation.navigate("SelTec")}
                     />
                     <Drawer.Item
-                        icon="logout"
+                        icon="view-list"
                         label="Lista de deseos"
                         onPress={() => props.navigation.navigate("Lista de deseos")}
                     />
