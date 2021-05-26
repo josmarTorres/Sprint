@@ -12,6 +12,7 @@ import Selec from '../screens/mainflow/Seleccion';
 import Drawer from './mainnavigator';
 import PerTec from '../screens/PerTec';
 
+
 const Stack = createStackNavigator();
 
 function AuthNavigator() {
@@ -36,6 +37,7 @@ function AuthNavigator() {
                 <Stack.Screen name="codigo" component={CodigoV} />
                 <Stack.Screen name="confirm" component={Confirm} />
                 <Stack.Screen name="pertec" component={PerTec} />
+                <Stack.Screen name="Presupuest" component={Presupuestar} />
             </Stack.Navigator>
         </NavigationContainer>
     );

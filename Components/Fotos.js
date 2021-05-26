@@ -37,9 +37,9 @@ export default function ImagePickerExample() {
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
       <TextInput
         label = "correo electronico"
-        style = {{backgroundColor: '#ffb72e', width: 100, height: 50}}
+        style = {{backgroundColor: '#fff', width: 200, height: 50, margin: 20, borderRadius: 20}}
+        placeholder = "Descripcion del problema"
       />
-        
     </View>
   );
 }

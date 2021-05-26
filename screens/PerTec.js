@@ -7,10 +7,11 @@ import { Divider } from 'react-native-elements';
 import Foto from '../Components/Fotos';
 import Mapa from '../Components/Mapa';
 import { TextInput } from 'react-native-gesture-handler';
-
+import Midnavigator from '../navigators/midnavigator';
 
 
 const PerTec = ({ navigation }) =>{
+
     const [modaOpen, setModalOpen] = useState(false);
     const [user, setUser] = useState('')
     return (
@@ -80,9 +81,8 @@ const PerTec = ({ navigation }) =>{
                     <Button
                         title = {'Presupuestar'}
                         color = '#FFB72E'
-                        onPress = {() => setModalOpen(true)}
-
-                        />
+                        onPress={() => navigation.navigate("Midnavigator", {screen: "presupuest"})}
+                    />
                     <View style={{width: 20}}></View>
                     <Button
                         title = {'Volver'}

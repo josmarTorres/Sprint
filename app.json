@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "ClientApp",
-    "slug": "ClientApp",
+    "name": "Fixwork",
+    "slug": "Fixwork",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/LynxLogo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/LynxLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

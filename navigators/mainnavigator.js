@@ -14,6 +14,7 @@ import salir from '../screens/auth/GetOut';
 import PerTec from '../screens/PerTec';
 import PerUser from '../screens/PerUser';
 import Carrito from '../screens/Carrito';
+import Midnavigator  from '../navigators/midnavigator';
 
 function Visual (props){
    /*   const GetOut = async () =>{
@@ -78,6 +79,7 @@ function Visual (props){
                         label="Cerrar Sesion"
                         onPress={() => signOut()}
                     />
+                    
                 </Drawer.Section>
                 
             </ScrollView>
@@ -168,6 +170,18 @@ function mainDrawerNavigator() {
                     options={{
                         headerShown: true,
                         title: "Perfil tecnico",
+                        headerStyle: {
+                            backgroundColor: "#FFB72E"
+                        }
+                    }}
+                    
+                />
+                <DrawerNav.Screen 
+                    name="Midnavigator" 
+                    component={ Midnavigator }
+                    options={{
+                        headerShown: true,
+                        title: "midnavigator",
                         headerStyle: {
                             backgroundColor: "#FFB72E"
                         }
