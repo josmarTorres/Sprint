@@ -1,9 +1,10 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationRouteContext } from '@react-navigation/native';
 import { View, Image, ScrollView } from 'react-native';
 import { Drawer } from 'react-native-paper';
 import { ContextoAutentication } from '../Components/AutenticationContex'
+import { CommonActions } from "@react-navigation/native";
 
 //Pantallas del drawer navigation
 import Home from '../screens/mainflow/Inicio';
@@ -11,7 +12,6 @@ import Selec from '../screens/mainflow/Seleccion';
 import SelTec from '../screens/mainflow/SelTec';
 import WishL from '../screens/mainflow/WishList';
 import salir from '../screens/auth/GetOut';
-import PerTec from '../screens/PerTec';
 import PerUser from '../screens/PerUser';
 import Carrito from '../screens/Carrito';
 import Midnavigator  from '../navigators/midnavigator';
@@ -23,17 +23,32 @@ function Visual (props){
     } */
     const { signOut } = React.useContext(ContextoAutentication);
 
+    const HandleScreen = (screen) =>{
+        /* props.navigation.toggleDrawer()
+        props.navigation.navigate(screen) */
+        props.navigation.dispatch({
+            ...CommonActions.reset({
+              index: 0,
+              routes: [{ name: "Midnavigator" }]
+              
+            })
+          });
+            props.navigation.navigate(screen)
+        }
+    
+
+
     return (
         <>
         <View style= {{flex: 1, backgroundColor: '#FFF86A'}}>
             <View style={{height:50}}>
 
+                </View>
+                <Image 
+                    source = {require('../assets/Fix.png')}
+                    style = {{height: 50, width: 100, margin: 20}}
+                />
             </View>
-            <Image 
-                source = {require('../assets/Fix.png')}
-                style = {{height: 50, width: 100, margin: 20}}
-            />
-        </View>
         <View style= {{flex: 4}}>
             <ScrollView>
                 <Drawer.Section>
@@ -55,13 +70,13 @@ function Visual (props){
                     <Drawer.Item
                         icon="shopping"
                         label="mis servicios"
-                        onPress={() => props.navigation.navigate("selec")}
+                        onPress={() => HandleScreen("selec")}
                     />
-                    <Drawer.Item
+                    {/* <Drawer.Item
                         icon="hammer"
                         label="Lista de tecnicos"
                         onPress={() => props.navigation.navigate("SelTec")}
-                    />
+                    /> */}
                     <Drawer.Item
                         icon="view-list"
                         label="Lista de deseos"
@@ -69,11 +84,6 @@ function Visual (props){
                     />
                 </Drawer.Section>
                 <Drawer.Section>
-                    <Drawer.Item
-                        icon="logout"
-                        label="Perfil del tecnico"
-                        onPress={() => props.navigation.navigate("Perfil del tecnico")}
-                    />
                     <Drawer.Item
                         icon="logout"
                         label="Cerrar Sesion"
@@ -89,6 +99,7 @@ function Visual (props){
     );
 }
 const DrawerNav = createDrawerNavigator();
+
 
 function mainDrawerNavigator() {
     return (
@@ -110,7 +121,7 @@ function mainDrawerNavigator() {
                 component={PerUser}
                 options={{
                     headerShown: true,
-                    title: "Inicio",
+                    title: "Perfil",
                     headerStyle: {
                         backgroundColor: "#FFB72E"
                     }
@@ -121,7 +132,7 @@ function mainDrawerNavigator() {
                 component={Carrito}
                 options={{
                     headerShown: true,
-                    title: "Inicio",
+                    title: "Carrito de compras",
                     headerStyle: {
                         backgroundColor: "#FFB72E"
                     }
@@ -157,19 +168,7 @@ function mainDrawerNavigator() {
                     component={Selec}
                     options={{
                         headerShown: true,
-                        title: "Servicios",
-                        headerStyle: {
-                            backgroundColor: "#FFB72E"
-                        }
-                    }}
-                    
-                />
-                <DrawerNav.Screen 
-                    name="Perfil del tecnico" 
-                    component={PerTec}
-                    options={{
-                        headerShown: true,
-                        title: "Perfil tecnico",
+                        title: "Mis servicios",
                         headerStyle: {
                             backgroundColor: "#FFB72E"
                         }

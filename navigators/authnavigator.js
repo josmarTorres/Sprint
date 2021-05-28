@@ -29,7 +29,7 @@ function AuthNavigator() {
                         },
                         title: "Román",
                         headerTintColor: "#FFFFFF"
-                    }} 
+                    }}
                 />
                 <Stack.Screen name="register" component={RegisterScreen} />
                 <Stack.Screen name="recovery" component={RecoveryScreen} />

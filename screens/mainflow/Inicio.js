@@ -41,35 +41,35 @@ const Home = ({ navigation }) => {
     {
       key: 1,
       name: 'plomeria',
-      avatar: 'https://picsum.photos/800 ',
+      avatar: 'https://media-adsa.camilyo.software/media-adsa/static/3681/273.jpg ',
       desc: 'descripcion 1',
-      origin: 'asset'
+      origin: 'url'
     },
     {
       key: 2,
-      name: 'shadow Midas',
-      avatar: 'https://static.wikia.nocookie.net/featteca/images/a/a1/Shadow_Midas_-_Boss_-_Fortnite.png/revision/latest?cb=20201027223734&path-prefix=es',
+      name: 'Electricidad',
+      avatar: "https://media.istockphoto.com/photos/electrician-engineer-work-tester-measuring-voltage-and-current-of-picture-id1150199550?k=6&m=1150199550&s=612x612&w=0&h=_V2zpov23nUa9lF5WC2ssRgLniOTGIBbjEhGehYhW0o=",
       desc: 'descripcion 2 ',
       origin: "url"
     },
     {
       key: 3,
-      name: 'Herman Mankiewicz',
-      avatar: 'https://los40.com/los40/imagenes/2020/11/20/album/1605868442_147516_1605873111_album_normal.jpg',
+      name: 'Herreria',
+      avatar: 'https://media-adsa.camilyo.software/media-adsa/static/3968/396.jpg',
       desc: 'descripcion 3 ',
       oringin: "url"
     },
     {
       key: 4,
-      name: 'Guillermo Arriaga',
-      avatar: 'https://cdn-3.expansion.mx/dims4/default/0d5c96e/2147483647/strip/true/crop/1054x1500+0+0/resize/1800x2562!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fb8%2Fc4%2F2e1a1e7f4f2cacadec08268c27ac%2Fqui399quien50leonardomanzo111017lm41.jpg',
+      name: 'Carpinteria',
+      avatar: 'https://lh3.googleusercontent.com/proxy/vLQl4INMnZAfBabi4VfdxRh4TX1BuOjdiDQ7nbv0tKFg2gwzSi8YP4qwzvuTbuQms1GK4Y7u2LQmDNaFOekIlsvPi1XNDc9_YagYwRHMA-YcWmOObCBd6_OQGAlf5BpHkA',
       desc: 'descripcion 4 ',
       origin: "url"
     },
     {
       key: 5,
-      name: 'Orson welles',
-      avatar: 'https://www.biografiasyvidas.com/biografia/w/fotos/welles_orson.jpg',
+      name: 'Veterinaria',
+      avatar: 'https://www.cursosycarreras.com.mx/orientacion/wp-content/uploads/2019/05/Carrera-de-veterinaria.jpg',
       desc: 'descripcion 5 ',
       origin: 'url'
     }
@@ -89,7 +89,7 @@ const Home = ({ navigation }) => {
         <CarouselCards />
         <Text style={styles.texto}>
           Categorias
-                </Text>
+        </Text>
         <View>
           <ScrollView
             horizontal //scrolling left to right instead of top to bottom
@@ -107,7 +107,7 @@ const Home = ({ navigation }) => {
                   <Paragraph>{u.desc}</Paragraph>
                 </Card.Content>
                 <Card.Actions>
-                <Button>No pos va</Button>
+                <Button>Ver mas...</Button>
                 </Card.Actions>
               </Card>
               /*<RenderCards item = {u}/>*/
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: '#ffffff',
-
   },
   text: {
     fontSize: 30,

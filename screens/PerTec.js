@@ -81,8 +81,8 @@ const PerTec = ({ navigation }) =>{
                     <Button
                         title = {'Presupuestar'}
                         color = '#FFB72E'
-                        onPress={() => navigation.navigate("Midnavigator", {screen: "presupuest"})}
-                    />
+                        onPress={() => navigation.navigate("Midnavigator", {screen: "Presupuest"})}/>
+                    
                     <View style={{width: 20}}></View>
                     <Button
                         title = {'Volver'}
