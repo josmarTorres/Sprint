@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
 
-export const SLIDER_WIDTH = Dimensions.get('window').width - 30
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8)
+export const SLIDER_WIDTH = Dimensions.get('window').width
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH )
 
 const CarouselCardItem = ({ item, index }) => {
   return (
@@ -39,14 +39,14 @@ const styles = StyleSheet.create({
   },
   header: {
     color: "#222",
-    fontSize: 28,
+    fontSize: 25,
     fontWeight: "bold",
     paddingLeft: 20,
     paddingTop: 20
   },
   body: {
     color: "#222",
-    fontSize: 18,
+    fontSize: 15,
     paddingLeft: 20,
     paddingLeft: 20,
     paddingRight: 20

@@ -69,7 +69,7 @@ function Visual (props){
                     />
                     <Drawer.Item
                         icon="shopping"
-                        label="mis servicios"
+                        label=" Miss servicios"
                         onPress={() => HandleScreen("selec")}
                     />
                     {/* <Drawer.Item

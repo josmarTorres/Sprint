@@ -5,6 +5,8 @@ import Constants from 'expo-constants'
 import SearchBar from '../../Components/Searchbar';
 import CarouselCards from '../../CarouselCards';
 import { Dimensions } from 'react-native';
+import { Touchable } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -77,30 +79,33 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <SearchBar style={styles.searchbar} />
+        {/* <SearchBar style={styles.searchbar} /> */}
         <View style={styles.text}>
-
         </View>
         <View>
           <Text style={{ fontSize: 25 }}>Bienvenido</Text>
         </View>
-        <Text >Oferta del día</Text>
-
-        <CarouselCards />
+        <Text style={{fontSize: 14}}>Oferta del día</Text>
+        <View style = {{elevation: 5, marginBottom: 10}}>
+          <CarouselCards />
+        </View>
         <Text style={styles.texto}>
           Categorias
         </Text>
-        <View>
+        <View style={{marginTop: 10, marginLeft: 10}}>
           <ScrollView
             horizontal //scrolling left to right instead of top to bottom
             showsHorizontalScrollIndicator={false} //hides native scrollbar
             //pagingEnabled //scrolls from one image to the next, instead of allowing any value inbetween
             style={{ flex: 1, flexDirection: 'row' }}
-          >
+          >s
+            
             {usersData.map(u => (
+              <TouchableOpacity onPress={() => navigation.navigate("selec")}>
               <Card 
-                style={{ width: 200, margin: 10 }}
+                style={{ width: 200, margin: 5 }}
               >
+                
                 <Card.Cover source={{ uri: u.avatar }}/>
                 <Card.Content>
                   <Title>{u.name}</Title>
@@ -110,8 +115,10 @@ const Home = ({ navigation }) => {
                 <Button>Ver mas...</Button>
                 </Card.Actions>
               </Card>
-              /*<RenderCards item = {u}/>*/
+              {/* /*<RenderCards item = {u}/>*/}
+              </TouchableOpacity>
             ))}
+            
           </ScrollView>
         </View>
       </ScrollView>
