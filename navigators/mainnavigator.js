@@ -9,11 +9,11 @@ import { CommonActions } from "@react-navigation/native";
 //Pantallas del drawer navigation
 import Home from '../screens/mainflow/Inicio';
 import Selec from '../screens/mainflow/Seleccion';
-import SelTec from '../screens/mainflow/SelTec';
 import WishL from '../screens/mainflow/WishList';
 import salir from '../screens/auth/GetOut';
 import PerUser from '../screens/PerUser';
 import Carrito from '../screens/Carrito';
+
 import Midnavigator  from '../navigators/midnavigator';
 
 function Visual (props){
@@ -139,7 +139,7 @@ function mainDrawerNavigator() {
                 }}
             />
 
-                <DrawerNav.Screen 
+                {/* <DrawerNav.Screen 
                     name="SelTec" 
                     component={SelTec}
                     options={{
@@ -150,7 +150,7 @@ function mainDrawerNavigator() {
                         }
                     }}
                     
-                />
+                /> */}
                 <DrawerNav.Screen 
                     name="Lista de deseos" 
                     component={WishL}

@@ -125,12 +125,12 @@ const Carrito = ({ navigation }) => {
             <Text style = {{fontWeight: 'bold'}}>Nombre: {item.name}</Text>
             <Text>{item.desc}</Text>
             <View style={{height: 50, width: 150, marginLeft: 30, marginTop: 10}}>
-              <Button
-                onPress={() => navigation.navigate("SelTec")}
+              {/* <Button
+                onPress={() => navigation.navigate("Midnavigator", {screen: 'SelTec'})}
                 title="Presupuestar"
                 color="#FFB300"
                 accessibilityLabel="Learn more about this purple button"
-              />
+              /> */}
             </View>
             <View style={{height: 50, width: 150, margin: 10, marginLeft: 30}}>
               <Button

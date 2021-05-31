@@ -28,8 +28,6 @@ function funcion (){
 }
 
 const App = () => {
-
-
   const [user, setUser] = useState(null)
   useEffect(()=>{
     console.log("abrir la aplicacion");
@@ -49,8 +47,6 @@ const App = () => {
       }if (response.code==='NotAuthorizedException') {
           alert('correo o contraseña invalido') 
       }else{
-          //navigation.navigate("home")
-          
           setUser(response);
       }
   }, 
@@ -75,10 +71,10 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <ContextoAutentication.Provider value={contextoAutenticacion}>
-      {
-        user ? <MainDrawerNavigator/> : <AuthNavigator/>
-      }
-    </ContextoAutentication.Provider>
+        {
+          user ? <MainDrawerNavigator/> : <AuthNavigator/>
+        }
+      </ContextoAutentication.Provider>
     </PaperProvider>
     
   );

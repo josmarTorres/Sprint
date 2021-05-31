@@ -73,7 +73,7 @@ return(
                     <Button
                         title ={'Presupuestar'}
                         color = '#FFB72E'
-                        onPress={() => navigation.navigate("Presupuest")}
+                        onPress={() => navigation.navigate("Midnavigator", {screen: "Seltec"})}
                     />
                 </View>
             </ScrollView>

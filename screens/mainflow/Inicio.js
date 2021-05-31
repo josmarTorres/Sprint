@@ -98,7 +98,7 @@ const Home = ({ navigation }) => {
             showsHorizontalScrollIndicator={false} //hides native scrollbar
             //pagingEnabled //scrolls from one image to the next, instead of allowing any value inbetween
             style={{ flex: 1, flexDirection: 'row' }}
-          >s
+          >
             
             {usersData.map(u => (
               <TouchableOpacity onPress={() => navigation.navigate("selec")}>
