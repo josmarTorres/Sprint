@@ -19,13 +19,13 @@ export function ServiciosHerreria() {
       detalles: ''
     },
     {
-        key: 3,
-        avatar: 'https://i.pinimg.com/originals/af/62/f8/af62f88bc5be8351988a2f9b0a2c0b81.jpg',
-        origin: 'asset',
-        name: 'Sahuanes',
-        desc: 'Creacion e instalacion de sahuan',
-        precio: '900',
-        detalles: ''
+      key: 3,
+      avatar: 'https://i.pinimg.com/originals/af/62/f8/af62f88bc5be8351988a2f9b0a2c0b81.jpg',
+      origin: 'asset',
+      name: 'Sahuanes',
+      desc: 'Creacion e instalacion de sahuan',
+      precio: '900',
+      detalles: ''
     },
     {
       key: 4,

@@ -1,5 +1,6 @@
 import { ServiciosPlomeria } from "../api/Plomeria"
 import { ServiciosElectricidad } from "../api/Electricidad"
+import { ServiciosHerreria } from "../api/Herreria"
 import { ServiciosDefault } from "../api/Default"
 
 import config from "../config/config";
