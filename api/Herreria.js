@@ -2,7 +2,7 @@ export function ServiciosHerreria() {
   const Herreria = [
     {
       key: 1,
-      avatar: 'https://lh3.googleusercontent.com/proxy/CFjmvRrSXdGNHGD0NFigqPuCVeh7ffRXGHoCTcVqKfu-NymuGphKSN-XZT8iVgVTmK-jJpj_kR4UlF60x7jq52WxJIWFdA5nnFemmJhAhU8',
+      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGtbZGzqwEs_NSkW-t5sXeIHwu_QBytlUWnw&usqp=CAU',
       origin: 'url',
       name: 'Fabricacion de cortina',
       desc: 'Cortinas de acero para tu negocio',
@@ -13,16 +13,16 @@ export function ServiciosHerreria() {
       key: 2,
       avatar: 'https://lh3.googleusercontent.com/proxy/SpQlk5yWDma63j0J6_5Ikr7z9R0wcOQgsh0Pjwkp__WxdKyJ665_1tsB-uaQqr73uXpNZLv5QKX6QwRfIlOHABhHGj-Whmb07jQyh4LmThnTCa26KqdCN34P0cvPiV5DsmP74d7lWvQp',
       origin: 'url',
-      name: 'Barandales',
+      name: 'Fabricacion de barandales',
       desc: 'Cualquier diseño sobre barandal para cualquier parte del hogar',
       precio: '500',
       detalles: ''
     },
     {
       key: 3,
-      avatar: 'https://i.pinimg.com/originals/af/62/f8/af62f88bc5be8351988a2f9b0a2c0b81.jpg',
+      avatar: 'https://i0.wp.com/puertasmarver.com/wp-content/uploads/2015/11/co-aluminio-grande-300x225.jpg',
       origin: 'asset',
-      name: 'Sahuanes',
+      name: 'Fabricacion de sahuanes',
       desc: 'Creacion e instalacion de sahuan',
       precio: '900',
       detalles: ''
@@ -31,7 +31,7 @@ export function ServiciosHerreria() {
       key: 4,
       avatar: 'https://www.ventacan.com/images/images/acero-bt.jpg',
       origin: 'url',
-      name: 'Ventanas',
+      name: 'Fabricacion de ventanas',
       desc: 'Diseñaremos las mejores ventanas para ti',
       precio: '500',
       detalles: ''

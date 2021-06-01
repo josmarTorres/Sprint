@@ -1,3 +1,4 @@
+export function ServiciosLimpieza() {
 const Limpieza = [
     {
       key: 1,
@@ -53,5 +54,6 @@ const Limpieza = [
         precio: '1200',
         detalles: ''
       }
-
 ]
+return Limpieza;
+}

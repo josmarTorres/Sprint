@@ -1,3 +1,4 @@
+export function servicioElectronica() {
 const Electronica = [
     {
       key: 1,
@@ -53,5 +54,6 @@ const Electronica = [
         precio: '1200',
         detalles: ''
       }
-
 ]
+return Electronica;
+}

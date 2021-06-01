@@ -1,3 +1,4 @@
+export function ServiciosVeterinaria(){
 const Veterinaria = [
     {
       key: 1,
@@ -53,5 +54,6 @@ const Veterinaria = [
         precio: '1200',
         detalles: ''
       }
-
 ]
+return Veterinaria;
+}

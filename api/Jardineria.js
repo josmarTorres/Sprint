@@ -1,3 +1,4 @@
+export function ServiciosJardineria(){
 const Jardineria = [
     {
       key: 1,
@@ -28,7 +29,7 @@ const Jardineria = [
     },
       {
         key: 4,
-        avatar: 'https://img.vixdata.io/pd/jpg-large/es/sites/default/files/imj/hogartotal/c/como-cambiar-de-maceta-una-planta-5.jpg',
+        avatar: 'https://saforguia.com/upload/img/periodico/img_21817.jpg',
         origin: 'url',
         name: 'Cambio de macetas',
         desc: 'Un trabajo que se hace con amor',
@@ -53,5 +54,6 @@ const Jardineria = [
         precio: '1200',
         detalles: ''
       }
-
 ]
+return Jardineria;
+}

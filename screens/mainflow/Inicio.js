@@ -64,7 +64,7 @@ const Home = ({ navigation }) => {
     {
       key: 4,
       name: 'Carpinteria',
-      avatar: 'https://lh3.googleusercontent.com/proxy/vLQl4INMnZAfBabi4VfdxRh4TX1BuOjdiDQ7nbv0tKFg2gwzSi8YP4qwzvuTbuQms1GK4Y7u2LQmDNaFOekIlsvPi1XNDc9_YagYwRHMA-YcWmOObCBd6_OQGAlf5BpHkA',
+      avatar: 'https://www.quotatis.es/consejos-reformas/wp-content/uploads/sites/2/2019/02/shutterstock_712183354-min.jpg',
       desc: 'descripcion 4 ',
       origin: "url"
     },
@@ -72,6 +72,27 @@ const Home = ({ navigation }) => {
       key: 5,
       name: 'Veterinaria',
       avatar: 'https://www.cursosycarreras.com.mx/orientacion/wp-content/uploads/2019/05/Carrera-de-veterinaria.jpg',
+      desc: 'descripcion 5 ',
+      origin: 'url'
+    },
+    {
+      key: 6,
+      name: 'Limpieza',
+      avatar: 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/01/producto-limpieza-2189651.jpg',
+      desc: 'descripcion 5 ',
+      origin: 'url'
+    },
+    {
+      key: 7,
+      name: 'Jardineria',
+      avatar: 'https://cdn.aarp.net/content/dam/aarp/home-and-family/your-home/2019/04/1140-green-thumb-esp.imgcache.rev.web.900.513.jpg',
+      desc: 'descripcion 5 ',
+      origin: 'url'
+    },
+    {
+      key: 8,
+      name: 'Albañileria',
+      avatar: 'https://www.informeconstruccion.com/informeconstruccion/fotos/notas/2018/09/11/5800_20180911162848.png',
       desc: 'descripcion 5 ',
       origin: 'url'
     }
