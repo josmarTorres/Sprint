@@ -1,4 +1,5 @@
 import { ServiciosPlomeria } from "../api/Plomeria"
+import { ServiciosElectricidad } from "../api/Electricidad"
 import { ServiciosDefault } from "../api/Default"
 
 import config from "../config/config";
@@ -10,6 +11,10 @@ export function getServicesByCat(cat) {
     try {
         if(cat === "plomeria"){
             return ServiciosPlomeria();
+        }else if(cat === "Electricidad"){
+            return ServiciosElectricidad();
+        }else if(cat === "Herreria"){
+            return ServiciosHerreria();
         }else{
             return ServiciosDefault();
         }
