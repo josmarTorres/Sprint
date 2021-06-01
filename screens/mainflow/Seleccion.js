@@ -2,52 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView, FlatList, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { Button, Card, Title, Paragraph } from 'react-native-paper'
 import Constants from 'expo-constants'
+import { getServicesByCat } from "../../api/Servicios"
 
 
 
-const Seleccion = ({ navigation }) => {
+
+const Seleccion = ({ navigation, route }) => {
+  //Categoria seleccionada
+  let cat = route.params.categoria;
+  //Obtencion de Servicios
+  let Servicios = getServicesByCat(cat);
 
   //Dimensiones
   const windowWidth = useWindowDimensions().width;
   const windowHeight = useWindowDimensions().height;
-
-  const usersData = [
-    {
-      key: 1,
-      name: 'plomeria',
-      avatar: 'https://media-adsa.camilyo.software/media-adsa/static/3681/273.jpg',
-      desc: 'Aqui podras ver los servicios de plomeria',
-      origin: 'asset'
-    },
-    {
-      key: 2,
-      name: 'Electricidad',
-      avatar: 'https://solar-energia.net/uploads/cms/electricidad.webp',
-      desc: 'Aqui podras ver los servicios de Electricidad ',
-      origin: "url"
-    },
-    {
-      key: 3,
-      name: 'Mascotas',
-      avatar: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/11/Mascota-composicion-fotografica.jpg',
-      desc: 'Aqui podras ver los servicios para mascotas',
-      oringin: "url"
-    },
-    {
-      key: 4,
-      name: 'Colocacion de azulejo',
-      avatar: 'https://www.ondacer.com/upload/stblog/1/253/257/253257large.jpg',
-      desc: 'Aqui podras ver los servicios de colocacion de azulejos',
-      origin: "url"
-    },
-    {
-      key: 5,
-      name: 'Pintura',
-      avatar: 'https://www.casamyers.com.mx/blog/wp-content/uploads/2018/08/pinturas-y-coloramico-1024x571.jpg',
-      desc: 'Aqui podras ver los servicios de pintura',
-      origin: 'url'
-    }
-  ]
 
   const styles = StyleSheet.create({
     scrollView: {
@@ -117,7 +85,7 @@ const Seleccion = ({ navigation }) => {
   })
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.orderCard} onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd"})}>
+    <TouchableOpacity style={styles.orderCard} onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item }})}>
         <View style = {{ width: windowHeight / 5.5 }}>
           <Image style = {{ width: windowHeight / 5.5, height: 130 }} source = {{ uri: item.avatar }}/>
         </View>
@@ -132,7 +100,7 @@ const Seleccion = ({ navigation }) => {
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <FlatList
-            data={usersData}
+            data={Servicios}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             refreshing={false}

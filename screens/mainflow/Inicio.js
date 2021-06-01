@@ -101,7 +101,7 @@ const Home = ({ navigation }) => {
           >
             
             {usersData.map(u => (
-              <TouchableOpacity onPress={() => navigation.navigate("selec")}>
+              <TouchableOpacity onPress={() => navigation.navigate("selec", {categoria: u.name})}>
               <Card 
                 style={{ width: 200, margin: 5 }}
               >
