@@ -61,7 +61,7 @@ const PerTec = ({ navigation }) =>{
                                 </View>
                                 <Mapa/>
                             </View>
-                            <View style = {{width: 150, height: 100, alignItems: 'center', alignContent: 'center', justifyContent: 'center'}}>
+                            {/* <View style = {{width: 150, height: 100, alignItems: 'center', alignContent: 'center', justifyContent: 'center'}}>
                                 <Button
                                 title ={'Cancelar'}
                                 color = '#FFB72E'
@@ -74,14 +74,14 @@ const PerTec = ({ navigation }) =>{
                                 onPress = {() => setModalOpen(false)}
                                 >
                                 </Button>
-                            </View>
+                            </View> */}
                             </ScrollView>
                         </View>
                     </Modal>
                     <Button
                         title = {'Presupuestar'}
                         color = '#FFB72E'
-                        onPress={() => navigation.navigate("Midnavigator", {screen: "Presupuest"})}/>
+                        onPress={() => navigation.navigate("Presupuest")}/>
                     
                     <View style={{width: 20}}></View>
                     <Button

@@ -180,7 +180,7 @@ function mainDrawerNavigator() {
                     component={ Midnavigator }
                     options={{
                         headerShown: true,
-                        title: "midnavigator",
+                        title: "Proceso de compra",
                         headerStyle: {
                             backgroundColor: "#FFB72E"
                         }
