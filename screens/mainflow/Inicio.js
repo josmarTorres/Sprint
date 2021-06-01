@@ -102,10 +102,7 @@ const Home = ({ navigation }) => {
             
             {usersData.map(u => (
               <TouchableOpacity onPress={() => navigation.navigate("selec", {categoria: u.name})}>
-              <Card 
-                style={{ width: 200, margin: 5 }}
-              >
-                
+              <Card style={{ width: 200, margin: 5 }}>
                 <Card.Cover source={{ uri: u.avatar }}/>
                 <Card.Content>
                   <Title>{u.name}</Title>
