@@ -11,7 +11,7 @@ export function ServiciosHerreria() {
     },
     {
       key: 2,
-      avatar: 'https://lh3.googleusercontent.com/proxy/SpQlk5yWDma63j0J6_5Ikr7z9R0wcOQgsh0Pjwkp__WxdKyJ665_1tsB-uaQqr73uXpNZLv5QKX6QwRfIlOHABhHGj-Whmb07jQyh4LmThnTCa26KqdCN34P0cvPiV5DsmP74d7lWvQp',
+      avatar: 'https://i.pinimg.com/236x/a1/81/4f/a1814f347ddc5bcb220e016133352699.jpg',
       origin: 'url',
       name: 'Fabricacion de barandales',
       desc: 'Cualquier diseño sobre barandal para cualquier parte del hogar',

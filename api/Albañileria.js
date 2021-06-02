@@ -13,7 +13,7 @@ export function ServiciosAlbañileria() {
         key: 2,
         avatar: 'https://decorexpro.com/images/article/orig/2017/12/kak-vyrovnyat-pol-v-kvartire-45.jpg',
         origin: 'url',
-        name: 'Nivelar pisos',
+        name: 'Nivelacion de piso',
         desc: 'Preparados para la construccion',
         precio: '500',
         detalles: ''

@@ -13,7 +13,7 @@ export function ServiciosElectricidad() {
       key: 2,
       avatar: 'https://mx.habcdn.com/files/dynamic_content/i-685739_big.jpg',
       origin: 'url',
-      name: 'Bajadas',
+      name: 'Bajadas de luz',
       desc: 'ayudamos a preparar sus bajadas para las conexiones electricas',
       precio: '500',
       detalles: ''
@@ -40,7 +40,7 @@ export function ServiciosElectricidad() {
       key: 5,
       avatar: 'https://instalacioneselectricas.xyz/wp-content/uploads/2019/11/Qu%C3%A9-es-una-caja-el%C3%A9ctrica.jpg',
       origin: 'url',
-      name: 'Revision de caja',
+      name: 'Revision de caja de fusibles',
       desc: 'En caso de cualquier falla podemos revisar el medidor',
       precio: '500',
       detalles: ''
