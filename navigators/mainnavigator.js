@@ -65,7 +65,7 @@ function Visual (props){
                     <Drawer.Item
                         icon="shopping-search"
                         label="Carrito de compras"
-                        onPress={() => props.navigation.navigate("Carrito")}
+                        onPress={() => props.navigation.navigate("Carrito", {categoria: "Carrito"})}
                     />
                     <Drawer.Item
                         icon="shopping"

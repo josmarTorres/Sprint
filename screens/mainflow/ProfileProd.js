@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, Button} from 'react-native';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper'
+import { getServiceByID } from "../../api/Servicios"
 
 const ProfileProd = ({navigation, route}) =>{
-    let servicio = route.params.servicio;
+    let categoria = route.params.categoria;
+    let id = route.params.servicio;
+    console.log(categoria+" "+id);
+
+    let servicio = getServiceByID(categoria, id);
+    console.log(servicio);
+
     return(
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>

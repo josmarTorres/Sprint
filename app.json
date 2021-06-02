@@ -24,7 +24,12 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.lynxwork.fixclientapp"
+      "package": "com.lynxwork.fixclientapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC1IenwUQyU8xkKEGi4Gkj-oljHs3boQ1k"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

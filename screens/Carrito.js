@@ -2,39 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Image, Button, StyleSheet, ScrollView, Text, View, SafeAreaView, FlatList, TouchableOpacity, useWindowDimensions, Picker } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper'
 import Constants from 'expo-constants'
+import { getServicesByCat } from "../api/Servicios"
 
-const Carrito = ({ navigation }) => {
+const Carrito = ({navigation, route}) =>{
+
+  let cat = route.params.categoria;
+  console.log(cat)
+
+  let servicios = getServicesByCat(cat);
+  console.log(servicios)
 
   //Dimensiones
   const windowWidth = useWindowDimensions().width;
   const windowHeight = useWindowDimensions().height;
 
   const [selectedValue, setSelectedValue] = useState("java");
-
-  const usersData = [
-    {
-      key: 1,
-      name: 'Instalacion de boiler',
-      avatar: 'https://media-adsa.camilyo.software/media-adsa/static/3681/273.jpg',
-      desc: 'Aqui podras ver los servicios de plomeria',
-      origin: 'asset'
-    },
-    {
-      key: 2,
-      name: 'Instalacion de azulejo',
-      avatar: 'https://solar-energia.net/uploads/cms/electricidad.webp',
-      desc: 'Aqui podras ver los servicios de Electricidad ',
-      origin: "url"
-    },
-    {
-      key: 3,
-      name: 'Instalacion de puerta',
-      avatar: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/11/Mascota-composicion-fotografica.jpg',
-      desc: 'Aqui podras ver los servicios para mascotas',
-      oringin: "url"
-    }
-  ]
-
+  
   const styles = StyleSheet.create({
     scrollView: {
       backgroundColor: '#ffffff',
@@ -122,7 +105,7 @@ const Carrito = ({ navigation }) => {
             </Picker>
         </View>
         <View style ={styles.orderCardContent}>
-            <Text style = {{fontWeight: 'bold'}}>Nombre: {item.name}</Text>
+            <Text style = {{fontWeight: 'bold'}}>{item.name}</Text>
             <Text>{item.desc}</Text>
             <View style={{height: 50, width: 150, marginLeft: 30, marginTop: 10}}>
               {/* <Button
@@ -145,18 +128,17 @@ const Carrito = ({ navigation }) => {
   );
 
   return (
-      <ScrollView>
-        <SafeAreaView style={styles.container}>
-          <FlatList
-              data={usersData}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-              refreshing={false}
-              onRefresh={() => reloadData()}
-          />
-        </SafeAreaView>
-      </ScrollView>
-    
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+            data={servicios}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+            refreshing={false}
+            onRefresh={() => reloadData()}
+        />
+      </SafeAreaView>
+    </ScrollView>
   );
 
 };

@@ -85,7 +85,7 @@ const Seleccion = ({ navigation, route }) => {
   })
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.orderCard} onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item }})}>
+    <TouchableOpacity style={styles.orderCard} onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item.key, categoria: cat }})}>
         <View style = {{ width: windowHeight / 5.5 }}>
           <Image style = {{ width: windowHeight / 5.5, height: 130 }} source = {{ uri: item.avatar }}/>
         </View>

@@ -1,22 +1,22 @@
 export function servicioPinturaYA(){
     const PinturaYA = [
         {
-        key: 1,
-        avatar: 'https://www.servicomzaragoza.es/images/pintura-fachadas.jpg',
-        origin: 'url',
-        name: 'Pintura de fachada',
-        desc: 'Un buen trabajo y muy limpio',
-        precio: '800',
-        detalles: ''
+            key: 1,
+            avatar: 'https://www.servicomzaragoza.es/images/pintura-fachadas.jpg',
+            origin: 'url',
+            name: 'Pintura de fachada',
+            desc: 'Un buen trabajo y muy limpio',
+            precio: '800',
+            detalles: ''
         },
         {
-        key: 2,
-        avatar: 'https://s3.amazonaws.com/mercado-ideas/wp-content/uploads/sites/2/2018/06/15152415/pintura-naranja-gris-600-640x478.jpg',
-        origin: 'url',
-        name: 'Pintura en interiores',
-        desc: 'Tu elije el color nosotros hacemos el resto',
-        precio: '500',
-        detalles: ''
+            key: 2,
+            avatar: 'https://s3.amazonaws.com/mercado-ideas/wp-content/uploads/sites/2/2018/06/15152415/pintura-naranja-gris-600-640x478.jpg',
+            origin: 'url',
+            name: 'Pintura en interiores',
+            desc: 'Tu elije el color nosotros hacemos el resto',
+            precio: '500',
+            detalles: ''
         },
         {
             key: 3,
@@ -55,5 +55,5 @@ export function servicioPinturaYA(){
             detalles: ''
         }
     ]
-return PinturaYA;
+    return PinturaYA;
 }
