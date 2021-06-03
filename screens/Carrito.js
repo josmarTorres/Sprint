@@ -108,12 +108,12 @@ const Carrito = ({navigation, route}) =>{
             <Text style = {{fontWeight: 'bold'}}>{item.name}</Text>
             <Text>{item.desc}</Text>
             <View style={{height: 50, width: 150, marginLeft: 30, marginTop: 10}}>
-              {/* <Button
-                onPress={() => navigation.navigate("Midnavigator", {screen: 'SelTec'})}
-                title="Presupuestar"
+              <Button
+                onPress={() => navigation.navigate("Midnavigator", {screen: 'Ticket'})}
+                title="Ticket"
                 color="#FFB300"
                 accessibilityLabel="Learn more about this purple button"
-              /> */}
+              />
             </View>
             <View style={{height: 50, width: 150, margin: 10, marginLeft: 30}}>
               <Button

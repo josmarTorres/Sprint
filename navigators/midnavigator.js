@@ -6,6 +6,7 @@ import ProfileProd from '../screens/mainflow/ProfileProd';
 import Pertec from '../screens/PerTec';
 import SelTec from '../screens/SelTec';
 import Sele from '../screens/mainflow/Seleccion';
+import Ticket from '../screens/Ticket'
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ function Midnavigator() {
                 <Stack.Screen name= "Pertec" component = {Pertec} options = {{headerShown: false, title: "Perfil Tecnico"}} />
                 <Stack.Screen name= "Presupuest" component = {Presupuestar} options = {{headerShown: false, title: "Presupuestar"}} />
                 <Stack.Screen name= "Seleccion" component = {Sele} options = {{headerShown: false, title: "Servicios"}} />
+                <Stack.Screen name= "Ticket" component = {Ticket} options = {{headerShown: false, title: "Ticket"}} />
             </Stack.Navigator>
     );
 }
