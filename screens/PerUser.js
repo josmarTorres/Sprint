@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, Alert, Image, useWindowDimensions, SafeAreaView, FlatList} from 'react-native';
-import { Avatar, Title } from 'react-native-paper';
+import { StyleSheet, Text, View, Button, Alert, Image, useWindowDimensions, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
+import { Card, Avatar, Title, Paragraph } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import pallete from '../config/colors'
 import { Divider } from 'react-native-elements';
@@ -9,23 +9,43 @@ import { getServicesByCat } from "../api/Servicios"
     
 
 const PerUser = ({ navigation, route }) =>{
+
+    let Deseos = getServicesByCat("WishList");
+
     let cat = route.params.categoria;
     console.log(cat)
 
     let servicios = getServicesByCat(cat);
     console.log(servicios)
+
     /* let item = servicios[1]; */
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
+
+    const ListWishList = ({ item }) => (
+        <TouchableOpacity onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item.key, categoria: item.cat }})}>
+            <Card style={{ width: ((windowWidth)), marginRight: 5}}>
+                <Card.Cover source={{ uri: item.avatar }}/>
+                <Card.Content>
+                <Title>{item.name}</Title>
+                <Paragraph>{item.desc}</Paragraph>
+                </Card.Content>
+            </Card>
+        </TouchableOpacity>
+    );
     
     const renderItem = ({ item }) => (
         <>
                     <Divider/>
-                        <View style={styles.orderCard}>
-                            <View style = {{width: 100}}> 
-                                <Image style = {{ width: 100, height: 130 }} source = {{ uri: item.avatar }}/>
+                        <TouchableOpacity style={styles.orderCard} onPress = {() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: {servicio: item.key, categoria: item.cat }})}>
+                            <View style = {{width: windowHeight /5.5}}> 
+                                <Image style = {{ width: windowHeight / 5.5, height: 130 }} source = {{ uri: item.avatar }}/>
                             </View>
-                        </View>
+                            <View style ={styles.orderCardContent}>
+                                <Text style = {{fontWeight: 'bold'}}>{item.name}</Text>
+                                <Text>{item.desc}</Text>
+                            </View>
+                        </TouchableOpacity>
         </>
     );
             return (
@@ -67,6 +87,23 @@ const PerUser = ({ navigation, route }) =>{
                                 />
                             </SafeAreaView>
                         </ScrollView>
+                        <View>
+                            <Text style = {{fontSize: 20, marginLeft: 10}}>
+                                Lista de deseos:
+                            </Text>
+                            <ScrollView  horizontal>
+                            <SafeAreaView style={styles.container}>
+                                <FlatList
+                                horizontal={true}
+                                data={Deseos}
+                                renderItem={ListWishList}
+                                keyExtractor={item => item.id}
+                                refreshing={false}
+                                onRefresh={() => reloadData()}
+                                />
+                                </SafeAreaView>
+                            </ScrollView>
+                        </View>
                     </ScrollView>
                 </View>
     );
@@ -98,10 +135,10 @@ const styles = StyleSheet.create({
     },
     orderCard: {
         backgroundColor: '#FFFFFF',
-        height: 130,
+        height: 120,
         width: 320,
         elevation: 5,
-        marginLeft: 10,
+        marginLeft: 5,
         marginRight: 10,
         marginTop: 6,
         marginBottom: 6,
@@ -110,6 +147,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row'
       },
+      orderCardContent: {
+        flex: 1,
+        flexDirection: 'column',
+        padding: 5,
+        justifyContent:'center'
+    }
 });
 
 export default PerUser;
