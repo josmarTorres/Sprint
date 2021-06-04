@@ -16,15 +16,24 @@ const PerTec = ({ navigation }) =>{
     const [user, setUser] = useState('')
     return (
             <View style = {styles.container}>
-                <Avatar.Image size={150} source={require('../assets/trab1.jpg')} />
-                <Text style={{fontSize: 18}}>
+                <ScrollView>
+                <View style ={{backgroundColor: '#ffffff', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
+                    <Image
+                        style={{width: 330, height: 250, position: 'absolute', marginTop: 40}}
+                        source={{
+                        uri: 'https://boxito.com/wp-content/uploads/2020/05/plomeria-para-todos.jpg',
+                        }}
+                    />
+                    <Avatar.Image size={150} source={require('../assets/trab1.jpg')} />
+                </View>
+                <Text style={{fontSize: 25}}>
                     Atenojenes Galindo Galindo
                 </Text>
-                <Text style={{fontSize: 18}}> 
+                <Text style={{fontSize: 18, marginTop: 30, fontWeight: 'bold'}}> 
                     Capacidades
                 </Text>
-                <View style={styles.Vistas}>
-                    <Avatar.Icon size = {50} icon = "shower"/>
+                <View style={{flex: 1,flexDirection: 'column', margin: 20}}>
+                    <Avatar.Icon size = {50} style={{marginLeft: 10}} icon = "shower"/>
                     <Text style={styles.Texto}>
                         Plomeria
                     </Text>
@@ -36,59 +45,18 @@ const PerTec = ({ navigation }) =>{
                     </Text>
                 </View>
                 <View style = {{flexDirection: 'row', height: 40, width: 150}}>
-                    <Modal
-                    visible={modaOpen} 
-                    animationType={'slide'}
-                    transparent = {true}
-                    >
-                        <View style = {styles.modal}>
-                        <ScrollView>
-                            <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                                <View style = {{height: 100, width: 200, margin: 10, paddingRight: 30}}>
-                                    <Foto/>
-                                    <View style = {{width: 10, height: 30}}>
-
-                                    </View>
-                                    
-                                </View>
-                                <View style = {{flex: 1, flexDirection: 'column', width: 50, margin: 20, justifyContent: 'center', alignItems: 'center'}}> 
-                                    <TextInput
-                                        style = {styles.Botones}
-                                        label = "correo electronico"
-                                        value = {user}
-                                        onChangeText={user => setUser(user)}
-                                    />
-                                </View>
-                                <Mapa/>
-                            </View>
-                            {/* <View style = {{width: 150, height: 100, alignItems: 'center', alignContent: 'center', justifyContent: 'center'}}>
-                                <Button
-                                title ={'Cancelar'}
-                                color = '#FFB72E'
-                                onPress = {() => setModalOpen(false)}
-                                >
-                                </Button>
-                                <Button
-                                title ={'Presupuestar'}
-                                color = '#FFB72E'
-                                onPress = {() => setModalOpen(false)}
-                                >
-                                </Button>
-                            </View> */}
-                            </ScrollView>
-                        </View>
-                    </Modal>
                     <Button
                         title = {'Presupuestar'}
                         color = '#FFB72E'
                         onPress={() => navigation.navigate("Presupuest")}/>
                     
                     <View style={{width: 20}}></View>
-                    <Button
-                        title = {'Volver'}
-                        color = '#040C8B'
+                        <Button
+                            title = {'Volver'}
+                            color = '#040C8B'
                         />
-                </View>
+                    </View>
+                </ScrollView>
             </View>
     );
 }

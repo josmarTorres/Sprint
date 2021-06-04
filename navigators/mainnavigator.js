@@ -60,7 +60,7 @@ function Visual (props){
                     <Drawer.Item
                         icon="face"
                         label="Perfil"
-                        onPress={() => props.navigation.navigate("PerUser")}
+                        onPress={() => props.navigation.navigate("PerUser", {categoria: "MisServicios"})}
                     />
                     <Drawer.Item
                         icon="shopping-search"

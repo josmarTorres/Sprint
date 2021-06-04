@@ -10,7 +10,6 @@ return(
             <View style={{flex: 1, flexDirection: 'column', margin: 30, alignItems: 'center', justifyContent: 'center'}}>
                 <Text
                 style ={{color: '#00308F', fontSize: 20}}
-                
                 >
                     Ingrese una imagen del problema
                 </Text>

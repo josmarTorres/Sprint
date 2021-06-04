@@ -1,131 +1,74 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, Alert} from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, Image, useWindowDimensions, SafeAreaView, FlatList} from 'react-native';
 import { Avatar, Title } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import pallete from '../config/colors'
 import { Divider } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
+import { getServicesByCat } from "../api/Servicios"
+    
 
-const PerUser = ({ navigation }) =>{
-    return (
-            <View style = {styles.container} >
-            <ScrollView>    
-                <View style ={{backgroundColor: '#ffe3ad', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
-                    <Avatar.Image size={150} source={require('../assets/trab1.jpg')} />
-                    <Text style={{fontSize: 22, }}>
-                        Atenojenes Galindo Galindo
-                    </Text>
-                </View>
-                <View style={styles.Vistas}>
-                    <Text style={{fontSize: 20}}>
-                        Apreciaciones
-                    </Text>
-                </View>
-                <Divider/>
-                <View style = {styles.Vistas}>
-                    <ScrollView 
-                    horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    style = {{flex: 1, flexDirection: 'row'}}
-                    >
-                        <View style = {{elevation:10, width: 150, height: 200, backgroundColor: '#fff', borderRadius: 10, margin: 10}}>
-                            <Text style = {{fontSize: 130, color: '#A3A491'}}>
-                                0
-                            </Text>
-                            <View style = {{backgroundColor: '#001078', width: 150, height: 27, borderBottomStartRadius: 10}}>
-                                <Text style = {{color: '#fff'}}>
-                                    Puntos
-                                </Text>
+const PerUser = ({ navigation, route }) =>{
+    let cat = route.params.categoria;
+    console.log(cat)
+
+    let servicios = getServicesByCat(cat);
+    console.log(servicios)
+    /* let item = servicios[1]; */
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
+    
+    const renderItem = ({ item }) => (
+        <>
+                    <Divider/>
+                        <View style={styles.orderCard}>
+                            <View style = {{width: 100}}> 
+                                <Image style = {{ width: 100, height: 130 }} source = {{ uri: item.avatar }}/>
                             </View>
                         </View>
-                        <View style = {{elevation:10, width: 150, height: 200, backgroundColor: '#fff', borderRadius: 10, margin: 10}}>
-                            <Text style = {{fontSize: 130, color: '#A3A491'}}>
-                                0
-                            </Text>
-                            <View style = {{backgroundColor: '#001078', width: 150, height: 27, borderBottomStartRadius: 10}}>
-                                <Text style = {{color: '#fff'}}>
-                                    Servicios contratados
-                                </Text>
+        </>
+    );
+            return (
+                <View style = {styles.container}>
+                    <ScrollView>    
+                        <View style ={{backgroundColor: '#ffffff', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
+                            <Image
+                                style={{position: 'absolute', width: 330, height: 250, borderRadius:20, marginTop:20}}
+                                source={{
+                                uri: 'http://c.files.bbci.co.uk/15F60/production/_103225998_sunset3.jpg',
+                                }}
+                            />
+                            <Avatar.Image size={150} style={{position: 'relative', marginTop: 100}} source={require('../assets/oscar.jpeg')} />
+                            <Text style = {{fontSize: 25, fontWeight: 'bold'}}> Oscar Josue Avila Gutierrez</Text>
+                        </View>
+                        <View style = {{marginTop: 50, marginLeft: 80}}>
+                            <Text style={{fontSize: 17}}>Calificacion de usuario: </Text>
+                            <View style={{flex:1, flexDirection: 'row', marginLeft: 10}}>
+                                <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>
+                                <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>
+                                <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>
+                                <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>
+                                <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>
                             </View>
                         </View>
-                        <View style = {{elevation:10, width: 150, height: 200, backgroundColor: '#fff', borderRadius: 10, margin: 10}}>
-                            <Text style = {{fontSize: 130, color: '#A3A491'}}>
-                                0
+                        <View style={styles.Vistas}>
+                            <Text style={{fontSize: 20, marginTop: 5}}>
+                                Servicios contratados:
                             </Text>
-                            <View style = {{backgroundColor: '#001078', width: 150, height: 27, borderBottomStartRadius: 10}}>
-                                <Text style = {{color: '#fff'}}>
-                                    Reseñas
-                                </Text>
-                            </View>
                         </View>
+                        <ScrollView>
+                            <SafeAreaView style={styles.container}>
+                                <FlatList
+                                    data={servicios}
+                                    renderItem={renderItem}
+                                    keyExtractor={item => item.id}
+                                    refreshing={false}
+                                    onRefresh={() => reloadData()}
+                                />
+                            </SafeAreaView>
+                        </ScrollView>
                     </ScrollView>
                 </View>
-
-
-                <View style = {styles.Vistas}>
-                    <ScrollView 
-                    horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    style = {{flex: 1, flexDirection: 'row'}}
-                    >
-                        <View style = {{elevation:10, width: 220, height: 250, backgroundColor: '#fff', margin: 10}}>
-                            <View style = {{backgroundColor: '#001078', width: 220, height: 60, flexDirection: 'row'}}>
-                                <Text style = {{color: '#fff', fontSize: 20, padding: 10}}>
-                                    Nivel 1
-                                </Text>
-                                <View style = {{padding: 10, paddingLeft: 60, flexDirection: 'row'}}>
-                                    <Avatar.Icon size={30} icon={'lock'} color = {'#001078'}/>
-                                    <Text style ={{color: '#fff', padding: 5}}>
-                                        1000
-                                    </Text>
-                                </View>
-                            </View>
-                            <Text style = {{fontSize: 50, color: '#A3A491'}}>
-                                0
-                            </Text>
-                        </View>
-                        <View style = {{elevation:10, width: 220, height: 250, backgroundColor: '#fff', margin: 10}}>
-                            <View style = {{backgroundColor: '#001078', width: 220, height: 60, flexDirection: 'row'}}>
-                                <Text style = {{color: '#fff', fontSize: 20, padding: 10}}>
-                                    Nivel 2
-                                </Text>
-                                <View style = {{padding: 10, paddingLeft: 60, flexDirection: 'row'}}>
-                                    <Avatar.Icon size={30} icon={'lock'} color = {'#001078'}/>
-                                    <Text style ={{color: '#fff', padding: 5}}>
-                                        1500
-                                    </Text>
-                                </View>
-                            </View>
-                            <Text style = {{fontSize: 50, color: '#A3A491'}}>
-                                0
-                            </Text>
-                        </View>
-                        <View style = {{elevation:10, width: 220, height: 250, backgroundColor: '#fff', margin: 10}}>
-                            <View style = {{backgroundColor: '#001078', width: 220, height: 60, flexDirection: 'row'}}>
-                                <Text style = {{color: '#fff', fontSize: 20, padding: 10}}>
-                                    Nivel 3
-                                </Text>
-                                <View style = {{padding: 10, paddingLeft: 60, flexDirection: 'row'}}>
-                                    <Avatar.Icon size={30} icon={'lock'} color = {'#001078'}/>
-                                    <Text style ={{color: '#fff', padding: 5}}>
-                                        2000
-                                    </Text>
-                                </View>
-                            </View>
-                            <Text style = {{fontSize: 50, color: '#A3A491'}}>
-                                0
-                            </Text>
-                        </View>
-                    </ScrollView>
-                </View>
-                <View>
-                    <Text>
-                        Lista de deseos
-                    </Text>
-                    
-                </View>
-                </ScrollView>
-            </View>
     );
 }
 
@@ -145,14 +88,28 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
-        padding: 20,
+        padding: 5,
     },
     Botones:{
         flexDirection: 'row',
         padding: 20,
         margin: 20,
 
-    }
+    },
+    orderCard: {
+        backgroundColor: '#FFFFFF',
+        height: 130,
+        width: 320,
+        elevation: 5,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 6,
+        marginBottom: 6,
+        borderRadius: 3,
+        overflow: 'hidden',
+        flex: 1,
+        flexDirection: 'row'
+      },
 });
 
 export default PerUser;
