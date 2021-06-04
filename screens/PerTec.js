@@ -17,40 +17,48 @@ const PerTec = ({ navigation }) =>{
     return (
             <View style = {styles.container}>
                 <ScrollView>
-                <View style ={{backgroundColor: '#ffffff', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
-                    <Image
-                        style={{width: 330, height: 250, position: 'absolute', marginTop: 40}}
-                        source={{
-                        uri: 'https://boxito.com/wp-content/uploads/2020/05/plomeria-para-todos.jpg',
-                        }}
-                    />
-                    <Avatar.Image size={150} source={require('../assets/trab1.jpg')} />
-                </View>
-                <Text style={{fontSize: 25}}>
-                    Atenojenes Galindo Galindo
-                </Text>
-                <Text style={{fontSize: 18, marginTop: 30, fontWeight: 'bold'}}> 
-                    Capacidades
-                </Text>
-                <View style={{flex: 1,flexDirection: 'column', margin: 20}}>
-                    <Avatar.Icon size = {50} style={{marginLeft: 10}} icon = "shower"/>
-                    <Text style={styles.Texto}>
-                        Plomeria
-                    </Text>
-                </View>
-                <Divider/>
-                <View style = {styles.Vistas}>
-                    <Text style = {styles.Texto}>
-                        Atenojenes galindo galindo ha terminado 122 servicios
-                    </Text>
-                </View>
-                <View style = {{flexDirection: 'row', height: 40, width: 150}}>
-                    <Button
-                        title = {'Presupuestar'}
-                        color = '#FFB72E'
-                        onPress={() => navigation.navigate("Presupuest")}/>
+                    <View style ={{backgroundColor: '#ffffff', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
+                        <Image
+                            style={{width: 330, height: 250, position: 'absolute', marginTop: 40, borderRadius: 10}}
+                            source={{
+                            uri: 'https://boxito.com/wp-content/uploads/2020/05/plomeria-para-todos.jpg',
+                            }}
+                        />
+                        <Avatar.Image size={150} style ={{marginTop: 200, elevation: 10}}source={require('../assets/trab1.jpg')} />
+                        <Text style={{fontSize: 25, marginTop: 10, fontWeight: 'bold'}}>
+                            Atenojenes Galindo Galindo
+                        </Text>
+                    </View>
                     
-                    <View style={{width: 20}}></View>
+                    <Text style={{fontSize: 18, marginTop: 120, fontWeight: 'bold'}}> 
+                        Capacidades
+                    </Text>
+                    <View style={{flex: 1,flexDirection: 'row', margin: 25}}>
+                        <Avatar.Icon size = {50} style={{marginLeft: 10}} icon = "shower"/>
+                        <Avatar.Icon size = {50} style={{marginLeft: 50}} icon = "power-socket"/>
+                        
+                    </View>
+                    <View style={{flex:1, flexDirection: 'row'}}>
+                        <Text style={{fontSize: 20, marginLeft: 17}}>
+                            Plomeria
+                        </Text>
+                        <Text style={{fontSize: 20, marginLeft: 17}}>
+                            Electricidad
+                        </Text>
+                    </View>
+                    <Divider/>
+                    <View style = {styles.Vistas}>
+                        <Text style = {styles.Texto}>
+                            Atenojenes galindo galindo ha terminado 122 servicios
+                        </Text>
+                    </View>
+                    <View style = {{flexDirection: 'row', height: 40, width: 150, marginLeft: 65}}>
+                        <Button
+                            title = {'Presupuestar'}
+                            color = '#FFB72E'
+                            onPress={() => navigation.navigate("Presupuest")}/>
+                        
+                        <View style={{width: 20}}></View>
                         <Button
                             title = {'Volver'}
                             color = '#040C8B'

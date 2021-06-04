@@ -5,7 +5,7 @@ export function MisServicios() {
             avatar: 'https://cdn.homedepot.com.mx/contentMarketing/Proyectos/271_Iluminacion/P_D271_04/images/cambiar-lampara.jpg',
             origin: 'url',
             name: 'Cambio e instalacion de lamparas',
-            desc: 'Destapamos Coladeras Registros, Bajadas, Trampas de Grasa',
+            desc: 'para esos cambios complicados, estamos nosotros',
             precio: '800',
             detalles: ''
         },

@@ -52,16 +52,18 @@ const PerUser = ({ navigation, route }) =>{
                 <View style = {styles.container}>
                     <ScrollView>    
                         <View style ={{backgroundColor: '#ffffff', elevation: 10, width: 330, height: 250, borderRadius: 20, alignContent: 'center', justifyContent: 'center', alignItems: 'center', margin: 10, paddingTop: 70}}>
+                            
                             <Image
                                 style={{position: 'absolute', width: 330, height: 250, borderRadius:20, marginTop:20}}
                                 source={{
                                 uri: 'http://c.files.bbci.co.uk/15F60/production/_103225998_sunset3.jpg',
                                 }}
                             />
-                            <Avatar.Image size={150} style={{position: 'relative', marginTop: 100}} source={require('../assets/oscar.jpeg')} />
+                            <Avatar.Image size={150} style={{position: 'relative', marginTop: 200, elevation:20}} source={require('../assets/oscar.jpeg')} />
                             <Text style = {{fontSize: 25, fontWeight: 'bold'}}> Oscar Josue Avila Gutierrez</Text>
+                            
                         </View>
-                        <View style = {{marginTop: 50, marginLeft: 80}}>
+                        <View style = {{marginTop: 100, marginLeft: 80}}>
                             <Text style={{fontSize: 17}}>Calificacion de usuario: </Text>
                             <View style={{flex:1, flexDirection: 'row', marginLeft: 10}}>
                                 <Avatar.Icon size = {20} style={{marginLeft: 10}} icon = "star"/>

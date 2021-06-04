@@ -36,7 +36,6 @@ export default function ImagePickerExample() {
       <Button title="Elije una imagen de la galeria" onPress={pickImage} />
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
       <TextInput
-        label = "correo electronico"
         style = {{backgroundColor: '#fff', width: 200, height: 50, margin: 20, borderRadius: 20}}
         placeholder = "Descripcion del problema"
       />
