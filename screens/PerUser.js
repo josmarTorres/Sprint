@@ -37,7 +37,7 @@ const PerUser = ({ navigation, route }) =>{
     const renderItem = ({ item }) => (
         <>
                     <Divider/>
-                        <TouchableOpacity style={styles.orderCard} onPress = {() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: {servicio: item.key, categoria: item.cat }})}>
+                        <TouchableOpacity style={styles.orderCard} onPress = {() => navigation.navigate("Midnavigator", {screen: "Ticket"})}>
                             <View style = {{width: windowHeight /5.5}}> 
                                 <Image style = {{ width: windowHeight / 5.5, height: 130 }} source = {{ uri: item.avatar }}/>
                             </View>
