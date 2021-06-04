@@ -1,20 +1,21 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const SLIDER_WIDTH = Dimensions.get('window').width
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH )
+export const SLIDER_WIDTH = Dimensions.get('window').width-10
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH)
 
 const CarouselCardItem = ({ item, index }) => {
   return (
     <View style={styles.container} key={index}>
-      <Image
-        //source={{ uri: item.imgUrl }}
-        source = {require('./assets/imagen1.jpeg')}
-        source = { item.origin == "asset" ? require('./assets/imagen1.jpeg') : { uri: item.imgUrl }}
-        style={styles.image}
-      />
-      <Text style={styles.header}>{item.title}</Text>
-      <Text style={styles.body}>{item.body}</Text>
+      {/* <TouchableOpacity onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item.key, categoria: item.cat }})}> */}
+        <Image
+          source = {{ uri: item.avatar }}
+          style={styles.image}
+        />
+        <Text style={styles.header}>{item.name}</Text>
+        <Text style={styles.body}>{item.desc}</Text>
+      {/* </TouchableOpacity> */}
     </View>
   )
 }
@@ -24,6 +25,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: ITEM_WIDTH,
     paddingBottom: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -39,17 +42,17 @@ const styles = StyleSheet.create({
   },
   header: {
     color: "#222",
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: "bold",
-    paddingLeft: 20,
-    paddingTop: 20
+    paddingTop: 20,
+    paddingLeft: 5,
+    paddingRight: 5
   },
   body: {
     color: "#222",
     fontSize: 15,
-    paddingLeft: 20,
-    paddingLeft: 20,
-    paddingRight: 20
+    paddingLeft: 5,
+    paddingRight: 5
   }
 })
 

@@ -1,4 +1,4 @@
-export function servicioPinturaYA(){
+export function ServiciosPintura(){
     const PinturaYA = [
         {
             key: 1,

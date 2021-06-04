@@ -1,16 +1,18 @@
-import { ServiciosPlomeria }        from "./Plomeria"
-import { ServiciosElectricidad }    from "./Electricidad"
-import { ServiciosHerreria }        from "./Herreria"
-import { ServiciosCarpinteria }     from './Carpinteria'
-import { ServiciosLimpieza }        from './Limpieza'
-import { ServiciosJardineria }      from './Jardineria'
-import { ServiciosAlbañileria }     from './Albañileria'
-import { ServiciosDefault }         from "./Default"
-import { ServiciosVeterinaria }     from "./Veterinaria";
+import { ServiciosPlomeria }        from "./rest/Plomeria"
+import { ServiciosElectricidad }    from "./rest/Electricidad"
+import { ServiciosHerreria }        from "./rest/Herreria"
+import { ServiciosCarpinteria }     from './rest/Carpinteria'
+import { ServiciosLimpieza }        from './rest/Limpieza'
+import { ServiciosJardineria }      from './rest/Jardineria'
+import { ServiciosAlbañileria }     from './rest/Albañileria'
+import { ServiciosDefault }         from "./rest/Default"
+import { ServiciosVeterinaria }     from "./rest/Veterinaria";
+import { ServiciosPintura }         from "./rest/Pintura";
 
-import { ServiciosCarrito }         from "./Carrito";
-import { MisServicios }             from "./MisServicios";
-import { WishList }                 from "./WishList";
+import { ServiciosCarrito }         from "./rest/Carrito";
+import { MisServicios }             from "./rest/MisServicios";
+import { WishList }                 from "./rest/WishList";
+import { Anuncios }                 from "./rest/Anuncios";
 
 
 
@@ -33,12 +35,16 @@ export function getServicesByCat(cat) {
             return ServiciosJardineria();
         }else if(cat === "Albañileria"){
             return ServiciosAlbañileria();
+        }else if(cat === "Pintura y acabados"){
+            return ServiciosPintura();
         }else if(cat === "Carrito"){
             return ServiciosCarrito();
         }else if(cat === "MisServicios"){
             return MisServicios();
         }else if(cat === "WishList"){
             return WishList();
+        }else if(cat === "Anuncios"){
+            return Anuncios();
         }else{
             return ServiciosDefault();
         }
@@ -51,31 +57,8 @@ export function getServiceByID(cat, id) {
     //Metodo para obtener los servicios por categoria
     let services = "";
     try {
-        if(cat === "plomeria"){
-            services = ServiciosPlomeria();
-        }else if(cat === "Electricidad"){
-            services = ServiciosElectricidad();
-        }else if(cat === "Herreria"){
-            services = ServiciosHerreria();
-        }else if(cat === "Carpinteria"){
-            services = ServiciosCarpinteria();
-        }else if(cat === "Veterinaria"){
-            services = ServiciosVeterinaria();
-        }else if(cat === "Limpieza"){
-            services = ServiciosLimpieza();
-        }else if(cat === "Jardineria"){
-            services = ServiciosJardineria();
-        }else if(cat === "Albañileria"){
-            services = ServiciosAlbañileria();
-        }else if(cat === "Carrito"){
-            services = ServiciosCarrito();
-        }else if(cat === "MisServicios"){
-            services = MisServicios();
-        }else if(cat === "WishList"){
-            services = WishList();
-        }else{
-            services = ServiciosDefault();
-        }
+        
+        services = getServicesByCat(cat);
 
         for (const [i, service] in services) {
             let ser = services[i];
