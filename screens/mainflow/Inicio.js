@@ -34,12 +34,24 @@ const windowHeight = Dimensions.get('window').height;
 
 const Home = ({ navigation }) => {
 
-  let Servicios = getServicesByCat("Anuncios");
+  let Anuncios = getServicesByCat("Anuncios");
   let Categorias = getCategorias();
   let Deseos = getServicesByCat("WishList");
   
+  const Ofertas = ({ item }) => (
+    <TouchableOpacity onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item.key, categoria: item.cat }})}>
+      <Card style={{ width: ((windowWidth)), marginRight: 5}}>
+        <Card.Cover source={{ uri: item.avatar }}/>
+        <Card.Content>
+          <Title>{item.name}</Title>
+          <Paragraph>{item.desc}</Paragraph>
+        </Card.Content>
+      </Card>
+    </TouchableOpacity>
+  );
+
   const ListWishList = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate("selec", {categoria: item.name})}>
+    <TouchableOpacity onPress={() => navigation.navigate("Midnavigator", {screen: "ProfileProd", params: { servicio: item.key, categoria: item.cat }})}>
       <Card style={{ width: ((windowWidth)-20), marginRight: 10}}>
         <Card.Cover source={{ uri: item.avatar }}/>
         <Card.Content>
@@ -69,11 +81,25 @@ const Home = ({ navigation }) => {
         <View style={styles.text}>
         </View>
         <View>
-          <Text style={{ fontSize: 25 }}>Bienvenido</Text>
+          <Text style={styles.texto}>Bienvenido</Text>
         </View>
-        <Text style={{fontSize: 14}}>Oferta del día</Text>
+        <Text style={{fontSize: 14, marginLeft: 5}}>Oferta del día</Text>
         <View style = {{elevation: 5, marginBottom: 10}}>
-          <CarouselCards type = "Anuncios"/>
+          {/* <CarouselCards type = "Anuncios"/> */}
+          <View>
+            <ScrollView  horizontal>
+              <SafeAreaView style={styles.container}>
+                <FlatList
+                  horizontal={true}
+                  data={Anuncios}
+                  renderItem={Ofertas}
+                  keyExtractor={item => item.id}
+                  refreshing={false}
+                  onRefresh={() => reloadData()}
+                />
+              </SafeAreaView>
+            </ScrollView>
+          </View>
         </View>
         <Text style={styles.texto}>
           Categorias
@@ -114,7 +140,7 @@ const Home = ({ navigation }) => {
               <Text style={styles.texto}>Lista de deseos</Text>
             </View>
             <View>
-              <ScrollView  horizontal>
+              <ScrollView horizontal>
                 <SafeAreaView style={styles.container}>
                   <FlatList
                     horizontal={true}
@@ -146,7 +172,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     color: '#000000',
-    backgroundColor: '#ffb72e'
+    backgroundColor: '#ffb72e',
+    marginLeft: 5
   },
   anuncio: {
     fontSize: 15,
@@ -155,7 +182,7 @@ const styles = StyleSheet.create({
   texto: {
     fontSize: 25,
     backgroundColor: '#ffffff',
-
+    marginLeft: 5
   },
   categorias: {
     width: 150,

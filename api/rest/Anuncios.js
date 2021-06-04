@@ -27,7 +27,8 @@ export function Anuncios() {
             name: 'Pintura de fachada',
             desc: 'Un buen trabajo y muy limpio',
             precio: '800',
-            detalles: ''
+            detalles: '',
+            cat: 'Pintura y acabados'
         },
         {
             key: 1,
@@ -36,7 +37,8 @@ export function Anuncios() {
             name: 'Limpieza de hogar',
             desc: 'Mantendremos limpio el hogar',
             precio: '800',
-            detalles: ''
+            detalles: '',
+            cat: 'Limpieza'
         },
     ]
     return Anuncios;
