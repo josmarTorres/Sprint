@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, ScrollView, Text, View, SafeAreaView, StatusBar } from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper'
+import { Avatar, Button, Card, Title, Paragraph, Divider } from 'react-native-paper'
 import Constants from 'expo-constants'
 import SearchBar from '../../Components/Searchbar';
 import CarouselCards from '../../CarouselCards';
@@ -101,6 +101,7 @@ const Home = ({ navigation }) => {
             </ScrollView>
           </View>
         </View>
+        <Divider/>
         <Text style={styles.texto}>
           Categorias
         </Text>
@@ -137,6 +138,7 @@ const Home = ({ navigation }) => {
               </ScrollView>
             </View>
             <View>
+              <Divider/>
               <Text style={styles.texto}>Lista de deseos</Text>
             </View>
             <View>
@@ -161,6 +163,11 @@ const Home = ({ navigation }) => {
   );
 };
 const styles = StyleSheet.create({
+  divider: {
+    width: windowHeight,
+    height: 10,
+    backgroundColor: '#ffffff',
+  },
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
